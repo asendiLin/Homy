@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bojue.homy.R;
 import com.bojue.homy.base.BaseFragment;
 
 /**
@@ -16,10 +17,8 @@ import com.bojue.homy.base.BaseFragment;
 public class PersonFragment extends BaseFragment {
     @Override
     public View createView(LayoutInflater inflater, ViewGroup container) {
-        TextView textView=new TextView(getActivity());
-        textView.setText("个人");
-        textView.setGravity(Gravity.CENTER);
-        return textView;
+        View view = View.inflate(getContext(),R.layout.person_fragment,null);
+        return view;
     }
 
     @Override

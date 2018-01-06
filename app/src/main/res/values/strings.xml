@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Homy</string>
+    <string name="my_order">我的订单</string>
+    <string name="my_demand">我的需求</string>
+    <string name="about_us">关于我们</string>
+    <string name="nick_name">昵称</string>
+    <string name="gender">性别</string>
+    <string name="reputation">信誉</string>
+
 </resources>

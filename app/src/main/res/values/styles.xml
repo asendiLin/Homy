@@ -8,14 +8,33 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!-- 全局Button的style -->
-<style name="global_bt_style">
-    <item name="android:layout_width">match_parent</item>
-    <item name="android:layout_height">wrap_content</item>
-    <item name="android:layout_marginLeft">@dimen/space_xxl</item>
-    <item name="android:layout_marginRight">@dimen/space_xxl</item>
-    <item name="android:layout_marginTop">@dimen/space_l</item>
-    <item name="android:background">@drawable/bt_bg</item>
-    <item name="android:textSize">@dimen/txt_m</item>
-</style>
+    <style name="person_text_header">
+        <item name="android:text">@string/nick_name</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+
+    <style name="person_text_order">
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingLeft">30dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    android:layout_marginTop="@dimen/person_btn_marginTop"
+    android:layout_marginRight="@dimen/person_btn_marginRight"
+    android:background="@android:color/transparent"
+    android:scaleType="fitXY"
+    android:layout_alignParentRight="true"
+    android:src="@mipmap/ic_launcher_arrow_right"
+    <style name="person_btn">
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_width">20dp</item>
+        <item name="android:src"></item>
+    </style>
+
 </resources>
