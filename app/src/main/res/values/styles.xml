@@ -8,4 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- 全局Button的style -->
+<style name="global_bt_style">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginLeft">@dimen/space_xxl</item>
+    <item name="android:layout_marginRight">@dimen/space_xxl</item>
+    <item name="android:layout_marginTop">@dimen/space_l</item>
+    <item name="android:background">@drawable/bt_bg</item>
+    <item name="android:textSize">@dimen/txt_m</item>
+</style>
 </resources>
