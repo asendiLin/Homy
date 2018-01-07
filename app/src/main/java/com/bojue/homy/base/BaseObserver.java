@@ -35,6 +35,7 @@ public abstract class BaseObserver<T> implements Observer<BaseEntity<T>> {
     @Override
     public void onError(Throwable e) {
         onRequestEnd(false);
+        onFail(e);
     }
 
     /**
@@ -42,8 +43,12 @@ public abstract class BaseObserver<T> implements Observer<BaseEntity<T>> {
      *
      * @param data
      */
-    abstract void onSuccess(T data);
+    public abstract void onSuccess(T data);
 
+    /**
+     * 请求失败
+     */
+    public abstract void onFail(Throwable throwable);
 
     /**
      * 失败返回码

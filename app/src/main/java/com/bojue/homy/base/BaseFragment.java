@@ -15,7 +15,7 @@ import com.bojue.homy.view.IView;
  * Fragment的基类
  */
 
-public abstract class BaseFragment extends Fragment implements IView {
+public abstract class BaseFragment extends Fragment{
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,7 +41,9 @@ public abstract class BaseFragment extends Fragment implements IView {
     @Override
     public void onStart() {
         super.onStart();
+        initData();
     }
+
 
     @Override
     public void onResume() {
@@ -80,4 +82,11 @@ public abstract class BaseFragment extends Fragment implements IView {
      * @return
      */
     public abstract View createView(LayoutInflater inflater, ViewGroup container);
+
+    /**
+     * 初始化数据
+     */
+
+    public void initData() {
+    }
 }

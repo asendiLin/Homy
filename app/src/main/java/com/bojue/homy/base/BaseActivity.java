@@ -12,7 +12,7 @@ import com.bojue.homy.view.IView;
  * Created by Administrator on 2018/1/6.
  */
 
-public abstract class BaseActivity extends FragmentActivity implements IView {
+public abstract class BaseActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

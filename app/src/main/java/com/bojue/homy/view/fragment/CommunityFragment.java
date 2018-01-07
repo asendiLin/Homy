@@ -7,13 +7,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bojue.homy.base.BaseFragment;
+import com.bojue.homy.view.IView;
 
 /**
  * Created by Administrator on 2018/1/6.
  * 社区Fragment
  */
 
-public class CommunityFragment extends BaseFragment {
+public class CommunityFragment extends BaseFragment implements IView{
     @Override
     public View createView(LayoutInflater inflater, ViewGroup container) {
         TextView textView=new TextView(getActivity());
@@ -28,7 +29,7 @@ public class CommunityFragment extends BaseFragment {
     }
 
     @Override
-    public void hideLoading() {
+    public void hideLoading(boolean isSuccess) {
 
     }
 }

@@ -5,9 +5,12 @@
     <!--<color name="colorPrimaryDark">#303F9F</color>-->
     <color name="colorPrimaryDark">#a2a2a2</color>
     <color name="colorAccent">#FF4081</color>
+    <!--<color name="colorTheme">#dedede</color>-->
     <color name="colorTheme">#F5F5F5</color>
-    <color name="colorButtonBackground">#3b3b3b</color>
-    <color name="colorTextWhite">#FFFFFF</color>
-    <color name="colorBackgroundLine">#535252</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorRed">#fc0404</color>
+    <color name="colorTextWhite">#FFFFFF</color>
+    <color name="colorLinearBackground">#FFABC6F9</color>
+    <color name="colorButtonBackground">#3b3b3b</color>
+    <color name="colorBackgroundLine">#535252</color>
 </resources>

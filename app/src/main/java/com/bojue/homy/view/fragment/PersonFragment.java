@@ -8,13 +8,14 @@ import android.widget.TextView;
 
 import com.bojue.homy.R;
 import com.bojue.homy.base.BaseFragment;
+import com.bojue.homy.view.IView;
 
 /**
  * Created by Administrator on 2018/1/6.
  * 个人Fragment
  */
 
-public class PersonFragment extends BaseFragment {
+public class PersonFragment extends BaseFragment implements IView {
     @Override
     public View createView(LayoutInflater inflater, ViewGroup container) {
         View view = View.inflate(getContext(),R.layout.person_fragment,null);
@@ -27,7 +28,7 @@ public class PersonFragment extends BaseFragment {
     }
 
     @Override
-    public void hideLoading() {
+    public void hideLoading(boolean isSuccess) {
 
     }
 }

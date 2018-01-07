@@ -1,19 +1,9 @@
 <resources>
     <string name="app_name">Homy</string>
-    <string name="str_need_type">需求类型:</string>
-    <string name="str_call_number">联系方式:</string>
-    <string name="str_need_pay">所需酬劳:</string>
+    <string name="str_price">Price：</string>
+    <string name="ic_price">￥</string>
+    <string name="str_credit">信誉度：</string>
+    <string name="str_start_time">发起时间:</string>
     <string name="str_end_time">结束时间:</string>
-    <string name="str_publish">发布</string>
-    <string name="str_hint_number">请输入你的手机号码...</string>
-    <string name="str_hint_pay">请输入酬劳...</string>
-    <string name="str_hint_need">请输入需求详情...</string>
-    <string name="str_date">1月2日</string>
-
-    <string-array name="need_type_arr">
-        <item>跑腿</item>
-        <item>代购</item>
-        <item>代课</item>
-    </string-array>
-
+    <string name="str_accept">接单</string>
 </resources>

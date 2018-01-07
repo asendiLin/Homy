@@ -11,12 +11,12 @@ import com.bojue.homy.view.fragment.CommunityFragment;
 import com.bojue.homy.view.fragment.HomeFragment;
 import com.bojue.homy.view.fragment.PersonFragment;
 import com.bojue.homy.view.fragment.PublishFragment;
-import com.bojue.homy.view.fragment.SearchNeedFragment;
+import com.bojue.homy.view.fragment.find.FindNeedFragment;
 
 /**
  * Main界面
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements MainView{
 
     private RadioGroup rgBottom;
     private FragmentTabHost tabHost;
@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initData() {
-        fragments = new Class[]{HomeFragment.class, SearchNeedFragment.class,
+        fragments = new Class[]{HomeFragment.class, FindNeedFragment.class,
                 PublishFragment.class, CommunityFragment.class, PersonFragment.class};
 
         tabHost.setup(getApplicationContext(),getSupportFragmentManager(),R.id.flContent);
@@ -81,7 +81,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    public void hideLoading() {
+    public void hideLoading(boolean isSuccess) {
 
     }
 }

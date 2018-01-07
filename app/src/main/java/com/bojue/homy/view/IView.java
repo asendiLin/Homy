@@ -14,5 +14,5 @@ public interface IView {
     /**
      * 隐藏加载
      */
-    void hideLoading();
+    void hideLoading(boolean isSuccess);
 }
