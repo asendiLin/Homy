@@ -5,6 +5,7 @@
     <dimen name="txt_s">12sp</dimen>
     <dimen name="txt_s_plus">14sp</dimen>
     <dimen name="txt_m">16sp</dimen>
+    <dimen name="txt_sm">20sp</dimen>
     <dimen name="txt_l">24sp</dimen>
     <dimen name="txt_xl">32sp</dimen>
 
@@ -12,6 +13,7 @@
     <dimen name="space_xxs">1dp</dimen>
     <dimen name="space_xs">4dp</dimen>
     <dimen name="space_s">8dp</dimen>
+    <dimen name="space_ss">12dp</dimen>
     <dimen name="space_m">16dp</dimen>
     <dimen name="space_l">24dp</dimen>
     <dimen name="space_xl">36dp</dimen>

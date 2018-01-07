@@ -39,4 +39,21 @@
         <item name="android:layout_weight">2</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <!--需求详情的LinearLayout-->
+    <style name="need_detail_ll_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/space_m</item>
+        <item name="android:layout_marginTop">@dimen/space_m</item>
+    </style>
+
+    <!--需求详情的TextView-->
+    <style name="need_detail_txt_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/txt_m</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

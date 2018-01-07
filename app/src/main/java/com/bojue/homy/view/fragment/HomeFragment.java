@@ -7,12 +7,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bojue.homy.base.BaseFragment;
+import com.bojue.homy.view.IView;
 
 /**
  * Created by Administrator on 2018/1/6.
  */
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements IView{
     @Override
     public View createView(LayoutInflater inflater, ViewGroup container) {
         TextView textView=new TextView(getActivity());
@@ -27,7 +28,7 @@ public class HomeFragment extends BaseFragment {
     }
 
     @Override
-    public void hideLoading() {
+    public void hideLoading(boolean isSuccess) {
 
     }
 }
