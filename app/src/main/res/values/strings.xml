@@ -6,4 +6,25 @@
     <string name="str_start_time">发起时间:</string>
     <string name="str_end_time">结束时间:</string>
     <string name="str_accept">接单</string>
+    <!--个人中心-->
+    <string name="str_nick_name">昵称</string>
+    <string name="str_gender">性别</string>
+    <string name="str_reputation">信誉</string>
+    <string name="str_write_message">编辑个人信息</string>
+    <string name="str_my_demand">我的需求</string>
+    <string name="str_my_order">我的订单</string>
+    <string name="str_about_us">关于我们</string>
+    <!--注册界面-->
+    <string name="str_text">让帮助成为你大学生活的一种娱乐</string>>
+    <string name="str_hint_name">请输入你的昵称...</string>
+    <string name="str_hint_password">请设置你的密码...</string>
+    <string name="str_hint_password_again">再次输入你的密码...</string>
+    <string name="str_hint_phone">请输入你的手机号码...</string>
+    <string name="str_hint_verification_Code">请输入你的验证码...</string>
+    <string name="str_hint_get_verification_Code">获取验证码</string>
+    <string name="str_hint_register">注册</string>>
+    <!--登陆界面-->
+    <string name="str_land_wechat">使用微信登陆:</string>
+    <string name="str_land_qq">使用QQ登陆:</string>
+    <string name="str_land_register">没有Hemy账号？点击注册</string>>
 </resources>

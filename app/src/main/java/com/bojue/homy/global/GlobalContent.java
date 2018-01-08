@@ -10,7 +10,7 @@ public class GlobalContent {
     /**
      * 全局url
      */
-    public final static String BASEURL="";
+    public final static String BASEURL="111111";
 
     /**
      * 用户ID

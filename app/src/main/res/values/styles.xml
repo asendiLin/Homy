@@ -56,4 +56,98 @@
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:textStyle">bold</item>
     </style>
+    <!-- 个人中心的头像区文字-->
+    <style name="person_header_text">
+        <item name="android:layout_marginLeft">@dimen/space_m</item>
+        <item name="android:layout_marginTop">@dimen/space_s</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/txt_s_plus</item>
+    </style>
+    <!-- 个人中心的头像区编辑个人信息-->
+    <style name="person_header_btn">
+        <item name="android:textSize">@dimen/txt_s_plus</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:paddingLeft">@dimen/space_xxl</item>
+        <item name="android:paddingRight">@dimen/space_xxl</item>
+        <item name="android:layout_marginTop">@dimen/space_l</item>
+        <item name="android:layout_marginLeft">@dimen/space_l</item>
+        <item name="android:layout_marginRight">@dimen/space_l</item>
+        <item name="android:background">@drawable/edit_text_bg</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/space_l</item>
+    </style>
+    <!-- 个人中心的分割线-->
+    <style name="person_view">
+        <item name="android:layout_height">@dimen/space_xs</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/colorLightGrey</item>
+    </style>
+    <!-- 个人中心的我的订单-->
+    <style name="person_m_order">
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingTop">@dimen/space_l</item>
+        <item name="android:paddingLeft">@dimen/space_xl</item>
+        <item name="android:paddingBottom">@dimen/space_m</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/txt_m</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+    <!-- 个人中心的箭头-->
+    <style name="person_m_order_btn">
+        <item name="android:layout_marginTop">@dimen/space_m</item>
+        <item name="android:layout_marginRight">@dimen/space_m</item>
+        <item name="android:layout_width">@dimen/space_xl</item>
+        <item name="android:layout_height">@dimen/space_xl</item>
+        <item name="android:src">@mipmap/ic_launcher_arrow_right</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <!--注册界面的LinearLayout-->
+    <style name="fragment_register">
+        <item name="android:layout_marginTop">@dimen/space_l</item>
+        <item name="android:layout_marginLeft">@dimen/space_xxl</item>
+        <item name="android:layout_marginRight">@dimen/space_xxl</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@drawable/edit_text_bg</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/space_xxl</item>
+    </style>
+    <!--注册界面的ImageView-->
+    <style name="fragment_register_image">
+        <item name="android:layout_centerVertical">true</item>>
+        <item name="android:padding">@dimen/space_xs</item>>
+        <item name="android:layout_marginLeft">@dimen/space_ss</item>
+        <item name="android:layout_width">@dimen/space_xl</item>
+        <item name="android:layout_height">@dimen/space_xl</item>
+    </style>
+    <!--注册界面的EditText-->
+    <style name="fragment_register_edit_text">
+        <item name="android:layout_marginLeft">@dimen/space_xxl</item>>
+        <item name="android:layout_marginRight">@dimen/space_xxl</item>>
+        <item name="android:textSize">@dimen/txt_s_plus</item>>
+        <item name="android:background">@null</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <!--登录界面的使用qq/微信ImageButton-->
+    <style name="fragment_land_btn">
+        <item name="android:background">@android:color/transparent</item>>
+        <item name="android:scaleType">fitXY</item>>
+        <item name="android:layout_marginLeft">@dimen/space_xxxxl</item>>
+        <item name="android:layout_marginTop">@dimen/space_s</item>
+        <item name="android:layout_height">@dimen/space_l</item>
+        <item name="android:layout_width">@dimen/space_l</item>
+    </style>
+    <!--登陆界面的使用微信/qq文本-->
+    <style name="fragment_land_text">
+        <item name="android:layout_marginTop">@dimen/space_m</item>>
+        <item name="android:layout_marginLeft">@dimen/space_xxxl</item>>
+        <item name="android:layout_height">wrap_content</item>>
+        <item name="android:layout_width">wrap_content</item>>
+    </style>
+
 </resources>

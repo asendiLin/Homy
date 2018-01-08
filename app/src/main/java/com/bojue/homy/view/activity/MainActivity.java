@@ -9,7 +9,7 @@ import com.bojue.homy.R;
 import com.bojue.homy.base.BaseActivity;
 import com.bojue.homy.view.fragment.CommunityFragment;
 import com.bojue.homy.view.fragment.HomeFragment;
-import com.bojue.homy.view.fragment.PersonFragment;
+import com.bojue.homy.view.fragment.person.PersonFragment;
 import com.bojue.homy.view.fragment.PublishFragment;
 import com.bojue.homy.view.fragment.find.FindNeedFragment;
 

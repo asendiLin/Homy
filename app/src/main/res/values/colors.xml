@@ -13,4 +13,7 @@
     <color name="colorLinearBackground">#FFABC6F9</color>
     <color name="colorButtonBackground">#3b3b3b</color>
     <color name="colorBackgroundLine">#535252</color>
+
+    <color name="colorLightGrey">#efedf0</color>
+
 </resources>
