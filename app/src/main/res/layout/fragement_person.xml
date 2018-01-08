@@ -15,12 +15,12 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_user_pic"
                 android:layout_marginLeft="@dimen/space_xl"
                 android:layout_marginTop="@dimen/space_l"
                 android:layout_centerHorizontal="true"
-                android:scaleType="fitXY"
+                android:scaleType="centerCrop"
                 android:src="@mipmap/ic_temp"
                 android:layout_width="@dimen/space_xxxl"
                 android:layout_height="@dimen/space_xxxl" />

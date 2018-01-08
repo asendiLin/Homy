@@ -1,8 +1,8 @@
 package com.bojue.homy.view.fragment.find;
 
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,10 +13,11 @@ import android.view.ViewGroup;
 import com.bojue.homy.R;
 import com.bojue.homy.base.BaseFragment;
 import com.bojue.homy.entity.NeedItem;
+import com.bojue.homy.listener.OnItemListener;
 import com.bojue.homy.presenter.find.AbstractFindNeedPresenter;
-import com.bojue.homy.presenter.find.FindNeedPresenter;
 import com.bojue.homy.presenter.find.FindNeedPresenterText;
 import com.bojue.homy.utils.https.load.LoadDataScrollController;
+import com.bojue.homy.view.activity.find.NeedDetailActivity;
 import com.bojue.homy.view.adapter.FindNeedAdapter;
 
 import java.util.ArrayList;
@@ -66,8 +67,16 @@ public class FindNeedFragment extends BaseFragment implements IFindNeedView,
 //        mPresenter.loadNeed("type","uId",page);
 
         //设置适配器
-        mAdapter = new FindNeedAdapter(mNeedItems);
+        mAdapter = new FindNeedAdapter(mNeedItems,getContext());
         mRecyclerView.setAdapter(mAdapter);
+
+        mAdapter.setListener(new OnItemListener() {
+            @Override
+            public void onClick(View view, int position) {
+                //toDo:传递条目的ID到Activity
+                startActivity(new Intent(getActivity(), NeedDetailActivity.class));
+            }
+        });
 
         mPresenter = new FindNeedPresenterText();
         mPresenter.attachView(this);

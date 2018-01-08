@@ -18,7 +18,7 @@
             android:layout_marginRight="@dimen/space_ss"
             android:layout_marginLeft="@dimen/space_xl"
             android:layout_marginTop="@dimen/space_s"
-android:layout_marginBottom="@dimen/space_m"
+            android:layout_marginBottom="@dimen/space_m"
             />
         <TextView
             android:id="@+id/txt_user_name"
@@ -41,12 +41,12 @@ android:layout_marginBottom="@dimen/space_m"
             android:padding="@dimen/space_xxs"
             >
             <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/str_credit"
-            android:textSize="@dimen/txt_s"
-            android:layout_marginLeft="@dimen/space_xs"
-            />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_credit"
+                android:textSize="@dimen/txt_s"
+                android:layout_marginLeft="@dimen/space_xs"
+                />
             <TextView
                 android:id="@+id/txt_credit"
                 android:layout_width="wrap_content"
@@ -56,27 +56,27 @@ android:layout_marginBottom="@dimen/space_m"
                 android:layout_marginRight="@dimen/space_xs"
                 />
         </LinearLayout>
-    <TextView
-        android:id="@+id/txt_phone_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/txt_m"
-        android:text="13420118899"
-        android:layout_below="@id/img_user_pic"
-        android:layout_marginLeft="@dimen/space_l"
-        android:layout_marginTop="@dimen/space_l"
-        android:layout_marginBottom="@dimen/space_ss"
-        android:textColor="@color/colorBlack"
-        />
+        <TextView
+            android:id="@+id/txt_phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/txt_m"
+            android:text="13420118899"
+            android:layout_below="@id/img_user_pic"
+            android:layout_marginLeft="@dimen/space_l"
+            android:layout_marginTop="@dimen/space_l"
+            android:layout_marginBottom="@dimen/space_ss"
+            android:textColor="@color/colorBlack"
+            />
     </RelativeLayout>
 
     <LinearLayout
         style="@style/need_detail_ll_style"
         >
         <TextView
-        style="@style/need_detail_txt_style"
-        android:text="@string/str_start_time"
-        />
+            style="@style/need_detail_txt_style"
+            android:text="@string/str_start_time"
+            />
         <TextView
             android:id="@+id/txt_start_time"
             style="@style/need_detail_txt_style"
@@ -99,12 +99,12 @@ android:layout_marginBottom="@dimen/space_m"
             android:layout_marginLeft="@dimen/space_s"
             />
     </LinearLayout>
-<View
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/space_xxs"
-    android:background="@color/colorBackgroundLine"
-    android:layout_marginTop="@dimen/space_m"
-    />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_xxs"
+        android:background="@color/colorBackgroundLine"
+        android:layout_marginTop="@dimen/space_m"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -153,14 +153,14 @@ android:layout_marginBottom="@dimen/space_m"
             />
 
         <Button
-           android:layout_width="wrap_content"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/detail_ll_bg"
-           android:layout_alignParentRight="true"
-           android:layout_centerVertical="true"
-           android:text="@string/str_accept"
-           android:textColor="@color/colorTextWhite"
-           android:onClick="onAccept"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/str_accept"
+            android:textColor="@color/colorTextWhite"
+            android:onClick="onAccept"
             />
     </RelativeLayout>
 
