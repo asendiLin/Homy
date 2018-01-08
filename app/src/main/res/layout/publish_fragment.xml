@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/space_s"
+        android:id="@+id/need_publish_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            style="@style/publish_ll_style">
+        <TextView
+            android:text="@string/str_need_type"
+            style="@style/publish_tv_style" />
+            <Spinner
+                android:id="@+id/sp_publish"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:paddingLeft="@dimen/space_m"
+                android:gravity="center"
+                android:background="@drawable/edit_text_bg"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/space_xl"
+                android:dropDownVerticalOffset="@dimen/space_xl"
+
+                />
+        </LinearLayout>
+        <LinearLayout
+            style="@style/publish_ll_style">
+            <TextView
+                android:text="@string/str_call_number"
+                style="@style/publish_tv_style" />
+            <EditText
+                android:id="@+id/et_number_publish"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:hint="@string/str_hint_number"
+                android:paddingLeft="@dimen/space_m"
+                android:textSize="@dimen/txt_s"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/space_xl"
+                android:background="@drawable/edit_text_bg"
+                android:inputType="phone"
+                />
+        </LinearLayout>
+        <LinearLayout
+            style="@style/publish_ll_style">
+            <TextView
+                android:text="@string/str_need_pay"
+                style="@style/publish_tv_style" />
+            <EditText
+                android:id="@+id/et_money_publish"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:hint="@string/str_hint_pay"
+                android:textSize="@dimen/txt_s"
+                android:paddingLeft="@dimen/space_m"
+                android:layout_gravity="center"
+                android:layout_height="@dimen/space_xl"
+                android:background="@drawable/edit_text_bg"
+                android:inputType="number"
+
+                />
+        </LinearLayout>
+        <LinearLayout
+            style="@style/publish_ll_style">
+
+            <TextView
+                android:text="@string/str_end_time"
+                style="@style/publish_tv_style" />
+            <TextView
+                android:id="@+id/tv_date"
+                android:text="@string/str_date"
+                android:clickable="true"
+                android:layout_width="0dp"
+                android:textColor="@color/colorBlack"
+                android:layout_weight="5"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="@dimen/space_xl"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="@dimen/space_m"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:background="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/txt_s_plus"
+                android:hint="@string/str_hint_need"
+                android:padding="@dimen/space_s"
+                android:maxLines="5"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/bt_publish"
+        android:layout_marginBottom="@dimen/space_l"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:text="@string/str_publish"
+        android:textSize="@dimen/txt_m"
+        style="@style/global_bt_style"/>
+</RelativeLayout>

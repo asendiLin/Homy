@@ -56,6 +56,15 @@
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:textStyle">bold</item>
     </style>
+    <!-- 标题右边ImageButton的style -->
+    <style name="right_button_style">
+        <item name="android:layout_marginRight">@dimen/space_m</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_width">@dimen/space_m</item>
+        <item name="android:layout_height">@dimen/space_m</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
     <!-- 个人中心的头像区文字-->
     <style name="person_header_text">
         <item name="android:layout_marginLeft">@dimen/space_m</item>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app ="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/space_s"
+    app:cardCornerRadius="@dimen/space_s"
+    app:elevation="@dimen/space_xs">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_margin="@dimen/space_m"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/head_sculpture"
+            android:src="@drawable/ic_touxiang"
+            android:scaleType="centerCrop"
+            android:layout_width="@dimen/space_xxl"
+            android:layout_height="@dimen/space_xxl" />
+            <TextView
+                android:layout_toRightOf="@id/head_sculpture"
+                android:layout_marginLeft="@dimen/space_m"
+                android:id="@+id/name_community"
+                android:text="Lizheng"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/txt_m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="@string/str_date"
+                android:layout_marginTop="@dimen/space_s"
+                android:layout_marginLeft="@dimen/space_m"
+                android:layout_toRightOf="@id/head_sculpture"
+                android:layout_below="@id/name_community"
+                android:id="@+id/date_community"
+                android:textSize="@dimen/txt_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/iv_community"
+            android:layout_marginLeft="@dimen/space_xxs"
+            android:layout_marginRight="@dimen/space_xxs"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_sample"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_xxxxxl" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_xl">
+            <CheckBox
+                android:background="@drawable/zan_selector"
+                android:button="@null"
+                android:layout_marginLeft="@dimen/space_m"
+                android:id="@+id/zan_community"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/space_l"
+                android:layout_height="@dimen/space_l" />
+            <TextView
+                android:layout_marginLeft="@dimen/space_xs"
+                android:text="@string/str_sum"
+                android:layout_toRightOf="@id/zan_community"
+                android:layout_centerVertical="true"
+                android:id="@+id/zan_sum_community"
+                android:textSize="@dimen/txt_s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageButton
+                android:id="@+id/comment_community"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/ic_comments"
+                android:layout_marginLeft="@dimen/space_m"
+                android:layout_toRightOf="@id/zan_sum_community"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/content_community"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/txt_s_plus"
+            android:layout_marginBottom="@dimen/space_s"
+            android:layout_marginLeft="@dimen/space_s"
+            android:text="@string/str_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

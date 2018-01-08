@@ -13,6 +13,12 @@ public class NeedItem {
     private String username;
     private String price;
 
+    public NeedItem(String date, String username, String price) {
+        this.date = date;
+        this.username = username;
+        this.price = price;
+    }
+
     public String getImgUrl() {
         return imgUrl;
     }

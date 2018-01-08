@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_weight="17"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <RelativeLayout
+            android:layout_weight="6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_user_pic"
+                android:layout_marginLeft="@dimen/space_xl"
+                android:layout_marginTop="@dimen/space_l"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_temp"
+                android:layout_width="@dimen/space_xxxl"
+                android:layout_height="@dimen/space_xxxl" />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="13"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginTop="@dimen/space_l"
+                    android:text="@string/str_nick_name"
+                    style="@style/person_header_text"/>
+                <TextView
+                    android:layout_marginLeft="@dimen/space_xl"
+                    android:layout_marginTop="@dimen/space_l"
+                    android:text="@string/str_about_us"
+                    android:textSize="@dimen/txt_m"
+                    style="@style/person_header_text" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="@string/str_gender"
+                    style="@style/person_header_text"/>
+                <TextView
+                    android:layout_marginLeft="@dimen/space_xl"
+                    android:text="@string/str_about_us"
+                    android:textSize="@dimen/txt_m"
+                    style="@style/person_header_text" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="@string/str_reputation"
+                    style="@style/person_header_text"/>
+                <TextView
+                    android:layout_marginLeft="@dimen/space_xl"
+                    android:text="@string/str_about_us"
+                    android:textSize="@dimen/txt_m"
+                    style="@style/person_header_text" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/write_person_msg"
+                android:text="@string/str_write_message"
+                style="@style/person_header_btn"
+                 />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+       style="@style/person_view"
+        android:layout_height="@dimen/space_xl"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="30"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <LinearLayout
+            android:id="@+id/ts_order"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/person_m_order"
+                android:text="@string/str_my_order" />
+            <ImageButton
+                android:id="@+id/next_order"
+                style="@style/person_m_order_btn" />
+        </LinearLayout>
+        <View
+            style="@style/person_view"
+            android:layout_alignBottom="@+id/ts_order" />
+        <LinearLayout
+            android:id="@+id/ts_demand"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/person_m_order"
+                android:text="@string/str_my_demand" />
+            <ImageButton
+                android:id="@+id/next_demand"
+                style="@style/person_m_order_btn" />
+        </LinearLayout>
+        <View
+            style="@style/person_view"
+            android:layout_alignBottom="@+id/ts_demand" />
+        <LinearLayout
+            android:id="@+id/ts_about_us"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/person_m_order"
+                android:text="@string/str_about_us" />
+            <ImageButton
+                android:id="@+id/next_about_us"
+                style="@style/person_m_order_btn" />
+        </LinearLayout>
+        <View
+            style="@style/person_view"
+            android:layout_alignBottom="@+id/ts_about_us" />
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

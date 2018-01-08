@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bojue.homy.view.activity.PublishFeelingActivity">
+    <include layout="@layout/title_bar_layout"/>
+    
+    <EditText
+        android:id="@+id/et_feeling_publish"
+        android:textSize="@dimen/txt_m"
+        android:paddingLeft="@dimen/space_s"
+        android:paddingBottom="@dimen/space_xxxl"
+        android:hint="@string/str_publish_feeling"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_xxxxxl" />
+    <ImageButton
+        android:id="@+id/ib_feeling_picture"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_add_picture"
+        android:layout_marginTop="@dimen/space_s"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="@dimen/space_xxl"
+        android:layout_height="@dimen/space_xxl" />
+</LinearLayout>

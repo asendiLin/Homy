@@ -3,8 +3,11 @@ package com.bojue.homy.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
 import android.view.Window;
+import android.widget.ImageButton;
 
+import com.bojue.homy.R;
 import com.bojue.homy.utils.https.activity.ActivityController;
 import com.bojue.homy.view.IView;
 
@@ -13,6 +16,7 @@ import com.bojue.homy.view.IView;
  */
 
 public abstract class BaseActivity extends FragmentActivity {
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
