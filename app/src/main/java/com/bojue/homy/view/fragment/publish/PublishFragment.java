@@ -1,6 +1,5 @@
 package com.bojue.homy.view.fragment.publish;
 
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import android.widget.Toast;
 
 import com.bojue.homy.R;
 import com.bojue.homy.base.BaseFragment;
-import com.bojue.homy.view.IView;
 
 /**
  * Created by Administrator on 2018/1/6.
@@ -27,7 +25,7 @@ public class PublishFragment extends BaseFragment implements IPublishView{
 
     @Override
     public View createView(LayoutInflater inflater, ViewGroup container) {
-        view = inflater.inflate(R.layout.publish_fragment,container,false);
+        view = inflater.inflate(R.layout.fragment_publish,container,false);
         initView();
 //        initData();
         return view;

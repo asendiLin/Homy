@@ -14,62 +14,51 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@color/colorTextWhite"
         />
-
     <android.support.v4.app.FragmentTabHost
         android:id="@+id/tabHost"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/space_xxl"
         android:visibility="gone"/>
 
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <RadioGroup
+        android:background="@color/colorTheme"
         android:id="@+id/rgBottom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:orientation="horizontal"
-        >
-
+        android:layout_height="@dimen/space_xxl"
+        android:orientation="horizontal">
         <RadioButton
+            android:checked="true"
+            android:drawableTop="@drawable/rb_home_selector"
             android:id="@+id/rbHome"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="首页"
-            android:button="@null"
+            style="@style/global_radio_bt_style"
             />
-
         <RadioButton
             android:id="@+id/rbSearch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="查看"
-            android:button="@null"
+            android:drawableTop="@drawable/rb_findneed_selector"
+            style="@style/global_radio_bt_style"
             />
         <RadioButton
             android:id="@+id/rbPublish"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="发布"
-            android:button="@null"
+            android:drawableTop="@drawable/rb_publish_selector"
+            style="@style/global_radio_bt_style"
             />
         <RadioButton
             android:id="@+id/rbCommunity"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="社区"
-            android:button="@null"
+            android:drawableTop="@drawable/rb_community_selector"
+            style="@style/global_radio_bt_style"
             />
         <RadioButton
             android:id="@+id/rbPerson"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="个人"
-            android:button="@null"
+            android:drawableTop="@drawable/rb_person_selector"
+            style="@style/global_radio_bt_style"
             />
     </RadioGroup>
+    </android.support.design.widget.AppBarLayout>
 </LinearLayout>

@@ -1,12 +1,15 @@
 package com.bojue.homy.service;
 
 import com.bojue.homy.base.BaseEntity;
+import com.bojue.homy.entity.CommentBean;
 import com.bojue.homy.entity.CommunityBean;
 
 import java.util.List;
 
 import io.reactivex.Observable;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 /**
@@ -15,6 +18,36 @@ import retrofit2.http.Query;
  */
 
 public interface CommunityService {
+
+    //请求社区心情数据方法
     @GET("")
     Observable<BaseEntity<List<CommunityBean>>> loadCommunity(@Query("page") int page);
+
+    /*请求社区评论列表数据方法
+     *page  页码
+     *cId  评论ID（告知哪条心情）
+     */
+    @GET("")
+    Observable<BaseEntity<List<CommentBean>>> loadComment(@Query("page") int page, @Query("") int cId);
+
+    /*提交用户评论数据方法
+     *uId  用户ID
+     * cId  评论ID（告知哪条心情）
+     * commentContent 评论内容
+     */
+    @POST("")
+    Observable<BaseEntity<List<CommentBean>>> submitComment(@Field("") int uId, @Field("") int cId, @Field("") String commentContent);
+        /*提交用户心情内容的方法
+     *uId  用户ID
+     * cId  评论ID（告知哪条心情）
+     * commentContent 评论内容
+     */
+    @POST("")
+    Observable<BaseEntity<List<CommunityBean>>> submitCommunityFeeling(@Field("") int uId,@Field("") String imagUrl, @Field("") String feelingContent);
+
+    /*提交用户点赞的方法
+   * cId  评论ID（告知哪条心情）
+*/
+    @POST("")
+    Observable<BaseEntity<List<CommunityBean>>> loadThumbUp(@Field("") int cId);
 }

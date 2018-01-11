@@ -12,6 +12,7 @@
     <!-- margin -->
     <dimen name="space_xxs">1dp</dimen>
     <dimen name="space_xs">4dp</dimen>
+    <dimen name="space_s_mid">6dp</dimen>
     <dimen name="space_s">8dp</dimen>
     <dimen name="space_ss">12dp</dimen>
     <dimen name="space_m">16dp</dimen>

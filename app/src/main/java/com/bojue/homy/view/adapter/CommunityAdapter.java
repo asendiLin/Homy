@@ -1,7 +1,9 @@
 package com.bojue.homy.view.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 
 import com.bojue.homy.R;
 import com.bojue.homy.entity.CommunityBean;
+import com.bojue.homy.view.fragment.community.ICommunityView;
 
 import java.util.List;
 
@@ -21,9 +24,12 @@ import java.util.List;
     public class CommunityAdapter extends RecyclerView.Adapter<CommunityAdapter.ViewHolder> {
         private final List<CommunityBean> mCommunityList;
         private Context mContext;
+        private View view;
         private OnItemClickListener mListener;
+        private ViewHolder holder;
 
-        public CommunityAdapter(List<CommunityBean> communityList, Context context) {
+
+    public CommunityAdapter(List<CommunityBean> communityList, Context context) {
             mCommunityList = communityList;
             this.mContext=context;
         }
@@ -32,22 +38,30 @@ import java.util.List;
         this.mListener = mListener;
     }
 
+    public View getView(){
+        return view;
+    }
+
+
+
     class ViewHolder extends RecyclerView.ViewHolder{
             TextView name_community;
             TextView date_community;
             ImageButton comment_community;
+            TextView zan_sum_community;
 
             public ViewHolder(View view) {
                 super(view);
                 name_community = view.findViewById(R.id.name_community);
                 date_community = view.findViewById(R.id.date_community);
                 comment_community = view.findViewById(R.id.comment_community);
+                zan_sum_community = view.findViewById(R.id.zan_sum_community);
             }
         }
         @Override
         public CommunityAdapter.ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.community_item,parent,false);
-            ViewHolder holder = new ViewHolder(view);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_community_item,parent,false);
+            holder = new ViewHolder(view);
 
             return holder;
         }
@@ -57,6 +71,19 @@ import java.util.List;
             CommunityBean communityBean = mCommunityList.get(position);
             holder.date_community.setText(communityBean.getDate_community());
             holder.name_community.setText(communityBean.getName_community());
+            holder.zan_sum_community.setText(" "+communityBean.getZan_sum_community());
+            Log.d("========","调用"+position);
+
+            if(communityBean.isStatus()) {
+                Drawable drawable =mContext.getResources().getDrawable(R.drawable.ic_zan_filled);
+                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+                holder.zan_sum_community.setCompoundDrawables(drawable, null, null, null);
+            } else {
+                Drawable drawable = mContext.getResources().getDrawable(R.drawable.ic_zan);
+                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+                holder.zan_sum_community.setCompoundDrawables(drawable, null, null, null);
+            }
+
 
             holder.comment_community.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -66,6 +93,15 @@ import java.util.List;
                     }
                 }
             });
+            holder.zan_sum_community.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (mListener!=null){
+                        mListener.onCheck(view,position);
+                    }
+                }
+            });
+
         }
 
         @Override
@@ -77,5 +113,8 @@ import java.util.List;
         public interface OnItemClickListener{
             //评论按钮的点击回调
             void onClick(View view,int position);
+
+            //点赞按钮的点击回调
+            void onCheck(View view,int position);
         }
     }

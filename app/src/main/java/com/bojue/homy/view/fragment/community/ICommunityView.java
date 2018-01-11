@@ -11,7 +11,19 @@ import java.util.List;
  */
 
 public interface ICommunityView extends IView {
-
+    //显示心情item的方法
     void initCommunity(List<CommunityBean> communityBeanList);
+
+    //提交心情成功的回调
+    void sendSuccess();
+
+    //提交心情失败的回调
+    void sendFail();
+
+    //点赞成功
+    void thumbUpSuccess(int position);
+
+    //点赞失败
+    void thumbUpFail();
 
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/sculpture_comment"
+        android:src="@drawable/ic_touxiang"
+        android:layout_margin="@dimen/space_ss"
+        style="@style/global_head_sculpture_style" />
+    <TextView
+        android:layout_toRightOf="@id/sculpture_comment"
+        android:layout_marginTop="@dimen/space_ss"
+        android:id="@+id/name_comment"
+        android:text="@string/str_name"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/txt_m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:text="@string/str_date"
+        android:layout_marginTop="@dimen/space_ss"
+        android:layout_toRightOf="@id/sculpture_comment"
+        android:layout_below="@id/name_comment"
+        android:id="@+id/date_comment"
+        android:textSize="@dimen/txt_s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/content_comment"
+        android:textSize="@dimen/txt_m"
+        android:text="@string/str_content_comment"
+        android:layout_toRightOf="@id/name_comment"
+        android:layout_marginLeft="@dimen/space_ss"
+        android:layout_marginTop="@dimen/space_ss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_below="@id/date_comment"
+        android:layout_marginTop="@dimen/space_ss"
+        android:layout_marginLeft="@dimen/space_xxxl"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorBackgroundLine"
+        >
+    </View>
+</RelativeLayout>

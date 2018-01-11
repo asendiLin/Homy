@@ -3,8 +3,8 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     xmlns:app="http://schemas.android.com/apk/res-auto"
-                                    android:layout_margin="@dimen/space_m"
-                                    app:cardElevation="@dimen/space_s"
+                                    android:layout_margin="@dimen/space_s"
+                                    app:elevation="@dimen/space_xs"
                                     app:cardCornerRadius="@dimen/space_s"
     >
 <LinearLayout
@@ -68,7 +68,15 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/space_ss"
         >
+        <ImageView
+            android:id="@+id/iv_position"
+            android:src="@mipmap/ic_position"
+            android:layout_width="@dimen/space_ss"
+            android:layout_height="@dimen/space_ss"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"/>
         <TextView
+            android:layout_toRightOf="@id/iv_position"
             android:id="@+id/txt_place"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

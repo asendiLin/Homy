@@ -1,6 +1,9 @@
 package com.bojue.homy.view.fragment.community;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,10 +11,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.bojue.homy.R;
 import com.bojue.homy.base.BaseFragment;
+import com.bojue.homy.entity.CommentBean;
 import com.bojue.homy.entity.CommunityBean;
 import com.bojue.homy.presenter.community.AbstractCommunityPresenter;
 import com.bojue.homy.presenter.community.ComPre;
@@ -32,6 +39,7 @@ public class CommunityFragment extends BaseFragment implements ICommunityView,Lo
     private final String TAG=this.getClass().getName();
 
     private View view;
+    private TextView zan_sum_community;
     private RecyclerView rv_community;
     private SwipeRefreshLayout srl_community;
     private LoadDataScrollController mLoadDataScrollController;
@@ -39,13 +47,17 @@ public class CommunityFragment extends BaseFragment implements ICommunityView,Lo
     private List<CommunityBean> communityList;
     private int page=1;
     private AbstractCommunityPresenter mPresenter;
-private CommunityAdapter adapter;
+    private CommunityAdapter adapter;
+    private int cId;
+
     @Override
     public View createView(LayoutInflater inflater, ViewGroup container) {
-        view = inflater.inflate(R.layout.community_fragment,container,false);
+        view = inflater.inflate(R.layout.fragment_community,container,false);
         initView();
         return view;
     }
+
+
 
     private void initView() {
         //从MainActivity传递过来
@@ -53,12 +65,15 @@ private CommunityAdapter adapter;
         ib_publish_feeling.setVisibility(View.VISIBLE);
         rv_community = view.findViewById(R.id.rv_community);
         srl_community=view.findViewById(R.id.refreshLayout);
+//        zan_sum_community = view.findViewById(R.id.zan_sum_community);
 
+        //设置下拉刷新控件
         mLoadDataScrollController=new LoadDataScrollController(this);
         srl_community.setColorSchemeResources(R.color.colorBackgroundLine);
         srl_community.setProgressViewOffset(true,0,10);
         rv_community.addOnScrollListener(mLoadDataScrollController);
         srl_community.setOnRefreshListener(mLoadDataScrollController);
+
 
         //设置为线性布局排列
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -74,7 +89,6 @@ private CommunityAdapter adapter;
                 startActivity(intent);
             }
         });
-
         //设置适配器
         adapter = new CommunityAdapter(communityList,getActivity());
         adapter.setItemListener(new CommunityAdapter.OnItemClickListener() {
@@ -83,6 +97,13 @@ private CommunityAdapter adapter;
                 Log.i(TAG, "onClick: "+position);
                 Intent intent=new Intent(getActivity(),CommentActivity.class);
                 getActivity().startActivity(intent);
+                intent.putExtra("cId",position);
+            }
+
+            @Override
+            public void onCheck(View view, int position) {
+                cId = position;
+                mPresenter.loadThumbUp(cId);
             }
         });
         rv_community.setAdapter(adapter);
@@ -107,6 +128,12 @@ private CommunityAdapter adapter;
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        ib_publish_feeling.setVisibility(View.VISIBLE);
+    }
+
+    @Override
     public void onStop() {
         super.onStop();
         ib_publish_feeling.setVisibility(View.GONE);
@@ -128,7 +155,43 @@ private CommunityAdapter adapter;
         this.communityList.addAll(communityBeanList);
         adapter.notifyDataSetChanged();
     }
-//下拉刷新
+    //提交心情成功的回调
+    @Override
+    public void sendSuccess() {
+
+    }
+    //提交心情失败的回调
+    @Override
+    public void sendFail() {
+
+    }
+    //获取点赞数据
+    //点赞成功
+    @Override
+    public void thumbUpSuccess(int position) {
+        CommunityBean communityBean=communityList.get(position);
+
+        if (communityBean.isStatus()){
+            //说明取消
+            communityList.get(position).setStatus(false);
+            communityBean.setZan_sum_community(communityBean.getZan_sum_community()-1);
+        }else {
+            //说明点赞
+            communityBean.setStatus(true);
+            communityBean.setZan_sum_community(communityBean.getZan_sum_community()+1);
+        }
+
+        //修改communityList数据后刷新适配器显示点赞内容
+        adapter.notifyDataSetChanged();
+
+    }
+    //点赞失败
+    @Override
+    public void thumbUpFail() {
+
+    }
+
+    //下拉刷新
     @Override
     public void onRefresh() {
         page=1;
@@ -145,4 +208,5 @@ private CommunityAdapter adapter;
         Log.i(TAG, "onLoadMore: "+page);
         mLoadDataScrollController.setLoadDataStatus(false);
     }
+
 }

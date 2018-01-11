@@ -8,8 +8,15 @@ import com.bojue.homy.view.fragment.community.ICommunityView;
  * 社区的Presenter的抽象类
  */
 
-public abstract class AbstractCommunityPresenter extends BasePresenter<ICommunityView>{
+public abstract class AbstractCommunityPresenter extends BasePresenter<ICommunityView> {
 
+    //显示社区心情
     public abstract void loadCommunity(int page);
+
+    //提交社区心情
+    public abstract void submitCommunityFeeling(int uId,String imagUrl,String feelingContent);
+
+    //显示点赞
+    public abstract  void  loadThumbUp(int cId);
 
 }

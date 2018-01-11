@@ -18,14 +18,12 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/head_sculpture"
             android:src="@drawable/ic_touxiang"
-            android:scaleType="centerCrop"
-            android:layout_width="@dimen/space_xxl"
-            android:layout_height="@dimen/space_xxl" />
+            style="@style/global_head_sculpture_style" />
             <TextView
                 android:layout_toRightOf="@id/head_sculpture"
                 android:layout_marginLeft="@dimen/space_m"
                 android:id="@+id/name_community"
-                android:text="Lizheng"
+                android:text="@string/str_name"
                 android:textStyle="bold"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/txt_m"
@@ -53,21 +51,16 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/space_xl">
-            <CheckBox
-                android:background="@drawable/zan_selector"
-                android:button="@null"
-                android:layout_marginLeft="@dimen/space_m"
-                android:id="@+id/zan_community"
-                android:layout_centerVertical="true"
-                android:layout_width="@dimen/space_l"
-                android:layout_height="@dimen/space_l" />
             <TextView
+                android:clickable="true"
                 android:layout_marginLeft="@dimen/space_xs"
                 android:text="@string/str_sum"
-                android:layout_toRightOf="@id/zan_community"
+                android:drawableLeft="@drawable/ic_zan"
+                android:padding="@dimen/space_xs"
+                android:gravity="center"
                 android:layout_centerVertical="true"
                 android:id="@+id/zan_sum_community"
-                android:textSize="@dimen/txt_s"
+                android:textSize="@dimen/txt_s_plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <ImageButton

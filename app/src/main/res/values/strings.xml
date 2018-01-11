@@ -7,23 +7,30 @@
     <string name="ic_price">￥</string>
     <string name="str_credit">信誉度：</string>
     <string name="str_start_time">发起时间:</string>
+
+    <!--发布需求-->
     <string name="str_end_time">结束时间:</string>
     <string name="str_publish">发布</string>
     <string name="str_hint_number">请输入你的手机号码...</string>
     <string name="str_hint_pay">请输入酬劳...</string>
     <string name="str_hint_need">请输入需求详情...</string>
-    <string name="str_date">1月2日</string>
-    <string name="str_sum">260</string>
-    <string name="str_content">God say:There was light,It was light</string>
-    <string name="str_accept">接单</string>
-    <string name="str_publish_feeling">输入你的感想...</string>
-
-
     <string-array name="need_type_arr">
         <item>跑腿</item>
         <item>代购</item>
         <item>代课</item>
     </string-array>
+
+    <!--社区-->
+    <string name="str_date">1月2日</string>
+    <string name="str_name">Lizheng</string>
+    <string name="str_sum">260</string>
+    <string name="str_content">God say:There was light,It was light</string>
+    <string name="str_content_comment">god say it was very good.</string>
+    <string name="str_accept">接单</string>
+    <!--社区心情-->
+    <string name="str_publish_feeling">输入你的感想...</string>
+    <!--社区评论-->
+    <string name="str_hint_comment">添加评论...</string>
 
     <!--个人中心-->
     <string name="str_nick_name">昵称</string>

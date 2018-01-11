@@ -18,7 +18,21 @@
     <item name="android:background">@drawable/bt_bg</item>
     <item name="android:textSize">@dimen/txt_m</item>
     <item name="android:textColor">@color/colorTextWhite</item>
+    <!-- 全局头像的style -->
 </style>
+    <style name="global_head_sculpture_style">
+        <item name="android:layout_width">@dimen/space_xxl</item>
+        <item name="android:layout_height">@dimen/space_xxl</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+    <!-- 全局radioButton的style -->
+    <style name="global_radio_bt_style">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/space_xl</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_marginTop">@dimen/space_s_mid</item>
+    </style>
     <!-- 发布需求Linearlayout的style -->
     <style name="publish_ll_style">
         <item name="android:layout_marginTop">@dimen/space_s</item>

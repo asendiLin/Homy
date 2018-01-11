@@ -1,22 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.bojue.homy.view.activity.CommentActivity">
+    <LinearLayout
+        android:id="@+id/ll_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <include layout="@layout/title_bar_layout"/>
+    </LinearLayout>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_above="@+id/underline_comment"
+        android:layout_below="@id/ll_comment"
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 <android.support.v7.widget.RecyclerView
-
     android:id="@+id/rv_comment"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
 </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
     <RelativeLayout
+        android:layout_alignParentBottom="true"
         android:id="@+id/underline_comment"
         android:layout_width="match_parent"
         android:layout_height="@dimen/space_xxl">
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorBackgroundLine"
+            />
+        <ImageView
+    android:id="@+id/ic_send"
+    android:src="@drawable/ic_comment_send"
+    android:layout_centerVertical="true"
+    android:layout_alignParentLeft="true"
+    android:layout_marginLeft="@dimen/space_m"
+    android:layout_width="@dimen/space_xl"
+    android:layout_height="@dimen/space_xl" />
+        <EditText
+            android:id="@+id/et_comment"
+            android:maxLines="1"
+            android:background="@android:color/transparent"
+            android:paddingLeft="@dimen/space_m"
+            android:textSize="@dimen/txt_s_plus"
+            android:hint="@string/str_hint_comment"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/ic_send"
+            android:layout_toLeftOf="@+id/bt_send_comment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_xxl" />
+        <Button
+            android:clickable="true"
+            android:background="@drawable/comment_check_selector"
+            android:layout_alignParentRight="true"
+            android:id="@+id/bt_send_comment"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/space_xxl"
+            android:layout_height="@dimen/space_xxl" />
     </RelativeLayout>
 </RelativeLayout>
