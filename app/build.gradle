@@ -39,4 +39,5 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.2.0'
     //noinspection GradleCompatible
     implementation 'com.android.support:design:27.0.2'
+    implementation files('libs/BaiduLBS_Android.jar')
 }

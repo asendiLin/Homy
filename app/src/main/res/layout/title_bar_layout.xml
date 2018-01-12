@@ -21,8 +21,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:background="@android:color/transparent"
-                android:src="@drawable/ic_back"
+                android:background="@null"
+                android:src="@mipmap/ic_back"
                 android:visibility="gone" />
         <TextView
             android:id="@+id/txt_title"
@@ -36,7 +36,7 @@
             android:textStyle="bold" />
             <ImageButton
                 android:id="@+id/ib_publish_feeling"
-                android:src="@drawable/ic_publish_feeling"
+                android:src="@mipmap/ic_publish_feeling"
                 style="@style/right_button_style"
                 android:visibility="gone"
                 />

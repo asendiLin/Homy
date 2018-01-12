@@ -5,10 +5,11 @@ import android.os.Bundle;
 import android.widget.RadioGroup;
 import android.widget.TabHost;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.bojue.homy.R;
 import com.bojue.homy.base.BaseActivity;
 import com.bojue.homy.view.fragment.community.CommunityFragment;
-import com.bojue.homy.view.fragment.HomeFragment;
+import com.bojue.homy.view.fragment.home.HomeFragment;
 import com.bojue.homy.view.fragment.publish.PublishFragment;
 import com.bojue.homy.view.fragment.person.PersonFragment;
 import com.bojue.homy.view.fragment.find.FindNeedFragment;
@@ -26,6 +27,7 @@ public class MainActivity extends BaseActivity implements MainView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SDKInitializer.initialize(getApplicationContext());
 
         initView();
         initData();
