@@ -36,18 +36,20 @@ public interface CommunityService {
      * commentContent 评论内容
      */
     @POST("")
-    Observable<BaseEntity<List<CommentBean>>> submitComment(@Field("") int uId, @Field("") int cId, @Field("") String commentContent);
+    Observable<BaseEntity<CommentBean>> submitComment(@Field("") int uId, @Field("") int cId, @Field("") String commentContent,@Field("") boolean isReply, @Field("")  String repliedName);
         /*提交用户心情内容的方法
      *uId  用户ID
-     * cId  评论ID（告知哪条心情）
-     * commentContent 评论内容
+     * imagUrl 照片地址
+     * feelingContent 心情内容
+     * mDate  当前时间
      */
     @POST("")
-    Observable<BaseEntity<List<CommunityBean>>> submitCommunityFeeling(@Field("") int uId,@Field("") String imagUrl, @Field("") String feelingContent);
+    Observable<BaseEntity<List<CommunityBean>>> submitCommunityFeeling(@Field("") int uId,@Field("") String imagUrl, @Field("") String feelingContent,@Field("")String mDate);
 
     /*提交用户点赞的方法
    * cId  评论ID（告知哪条心情）
+   * uId 用户ID
 */
     @POST("")
-    Observable<BaseEntity<List<CommunityBean>>> loadThumbUp(@Field("") int cId);
+    Observable<BaseEntity<List<CommunityBean>>> loadThumbUp(@Field("") int cId,int uId);
 }

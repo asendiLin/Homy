@@ -9,17 +9,44 @@ public class CommentBean {
     private String name;
     private String data;
     private String comment;
+    private boolean reply = false;
+    private String repliedName;
 
-    public CommentBean(String name, String data) {
-        this.name = name;
-        this.data = data;
+    public String getRepliedName() {
+        return repliedName;
     }
 
-    public CommentBean(String imgUrl, String name, String data, String comment) {
+    public void setRepliedName(String repliedName) {
+        this.repliedName = repliedName;
+    }
+
+
+    public CommentBean(String name, String data, boolean reply, String repliedName) {
+        this.name = name;
+        this.data = data;
+        this.comment = comment;
+        this.reply = reply;
+        this.repliedName = repliedName;
+    }
+
+    public CommentBean(String imgUrl, String name, String data, String comment, boolean reply) {
         this.imgUrl = imgUrl;
         this.name = name;
         this.data = data;
         this.comment = comment;
+        this.reply = reply;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setReply(boolean reply) {
+        this.reply = reply;
+    }
+
+    public boolean isReply() {
+        return reply;
     }
 
     public String getImgUrl() {

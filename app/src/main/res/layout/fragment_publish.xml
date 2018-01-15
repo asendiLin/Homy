@@ -37,6 +37,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="5"
                 android:hint="@string/str_hint_number"
+                android:maxLength="11"
                 android:paddingLeft="@dimen/space_m"
                 android:textSize="@dimen/txt_s"
                 android:layout_gravity="center"
@@ -87,6 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
+                android:id="@+id/et_need_content"
                 android:background="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

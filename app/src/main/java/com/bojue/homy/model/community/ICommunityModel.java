@@ -27,18 +27,19 @@ public interface ICommunityModel {
      * pageId  评论ID（告知哪条心情）
      * commentContent 评论内容
      */
-    Observable<BaseEntity<List<CommentBean>>>   submitComment(int uId,int cId,String commentContent);
+    Observable<BaseEntity<CommentBean>>   submitComment(int uId,int cId,String commentContent,boolean isReply,String repliedName);
 
         /*
     *提交心情
      *uId  用户ID
      * imagUrl  发布的图片信息
-     * commentContent 发布的心情内容
+     * feelingContent 发布的心情内容
      */
-    Observable<BaseEntity<List<CommunityBean>>> submitCommunityFeeling(int uId,String imagUrl,String feelingContent);
+    Observable<BaseEntity<List<CommunityBean>>> submitCommunityFeeling(int uId,String imagUrl,String feelingContent ,String mDate);
         /*提交用户点赞的方法
 * pageId  评论ID（告知哪条心情）
+* uId    用户ID
 */
-        Observable<BaseEntity<List<CommunityBean>>> loadThumbUp(int cId);
+        Observable<BaseEntity<List<CommunityBean>>> loadThumbUp(int cId,int uId);
 
 }

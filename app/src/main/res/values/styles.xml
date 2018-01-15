@@ -18,6 +18,17 @@
     <item name="android:background">@drawable/bt_bg</item>
     <item name="android:textSize">@dimen/txt_m</item>
     <item name="android:textColor">@color/colorTextWhite</item>
+</style>
+    <!-- 回复Button的style -->
+    <style name="reply_bt_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/space_xl</item>
+        <item name="android:layout_marginLeft">@dimen/space_l</item>
+        <item name="android:layout_marginRight">@dimen/space_l</item>
+        <item name="android:background">@drawable/bt_bg</item>
+        <item name="android:textSize">@dimen/txt_m</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorTextWhite</item>
     <!-- 全局头像的style -->
 </style>
     <style name="global_head_sculpture_style">

@@ -40,8 +40,8 @@ public class CommunityPresenter extends AbstractCommunityPresenter {
     }
    //发送心情数据操作
     @Override
-    public void submitCommunityFeeling(int uId, String imagUrl, String feelingContent) {
-        mModel.submitCommunityFeeling(uId, imagUrl, feelingContent)
+    public void submitCommunityFeeling(int uId, String imagUrl, String feelingContent,String mDate) {
+        mModel.submitCommunityFeeling(uId, imagUrl, feelingContent,mDate)
                 .subscribe(new BaseObserver<List<CommunityBean>>() {
                     @Override
                     public void onSuccess(List<CommunityBean> data) {
@@ -58,8 +58,8 @@ public class CommunityPresenter extends AbstractCommunityPresenter {
 
     //获取点赞数据
     @Override
-    public void loadThumbUp(final int cId) {
-        mModel.loadThumbUp(cId)
+    public void loadThumbUp(final int cId, final int uId) {
+        mModel.loadThumbUp(cId,uId)
                 .subscribe(new BaseObserver<List<CommunityBean>>() {
                     @Override
                     public void onSuccess(List<CommunityBean> data) {

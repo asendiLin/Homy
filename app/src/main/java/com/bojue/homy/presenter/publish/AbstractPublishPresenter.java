@@ -8,5 +8,7 @@ import com.bojue.homy.view.fragment.publish.IPublishView;
  */
 
 public abstract class AbstractPublishPresenter extends BasePresenter<IPublishView> {
+    //提交发布需求数据
+    public abstract void submitPublishContent(int uId, String price, String phoneNum, String needType, String startTime, String endTime, String needContent, String latitude, String longitude);
 
 }

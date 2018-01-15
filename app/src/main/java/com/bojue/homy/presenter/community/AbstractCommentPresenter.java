@@ -12,7 +12,7 @@ public abstract  class AbstractCommentPresenter extends BasePresenter<CommentVie
     //显示评论
     public abstract void loadComment(int page,int cId);
 
-    //提交评论
-    public abstract void submitComment(int uId, int cId, String commentContent);
+    //提交评论或回复
+    public abstract void submitComment(int uId, int cId, String commentContent,boolean isReply,String repliedName);
 
 }

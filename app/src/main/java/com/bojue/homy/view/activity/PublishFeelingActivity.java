@@ -1,6 +1,5 @@
 package com.bojue.homy.view.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,10 +10,11 @@ import com.bojue.homy.R;
 import com.bojue.homy.base.BaseActivity;
 import com.bojue.homy.entity.CommunityBean;
 import com.bojue.homy.presenter.community.CommunityPresenter;
-import com.bojue.homy.view.IView;
 import com.bojue.homy.view.fragment.community.ICommunityView;
 
 import java.util.List;
+
+import static com.bojue.homy.utils.https.date.DateUtil.getSystemDate;
 
 public class PublishFeelingActivity extends BaseActivity implements ICommunityView, View.OnClickListener{
     private ImageButton ib_back_community;
@@ -24,6 +24,7 @@ public class PublishFeelingActivity extends BaseActivity implements ICommunityVi
     private int uId=1;
     private String imagUrl = "";
     private String feelingContent = "";
+    private String mDate;
     private CommunityPresenter mCommunityPresenter;
 
     @Override
@@ -48,6 +49,7 @@ public class PublishFeelingActivity extends BaseActivity implements ICommunityVi
         ib_back_community.setOnClickListener(this);
         ib_feeling_picture.setOnClickListener(this);
         ib_send_feeling_content.setOnClickListener(this);
+        mDate = getSystemDate();
 
     }
 
@@ -61,7 +63,7 @@ public class PublishFeelingActivity extends BaseActivity implements ICommunityVi
 
                 break;
             case R.id.ib_send_feeling_content:
-                mCommunityPresenter.submitCommunityFeeling(uId,imagUrl,feelingContent);
+                mCommunityPresenter.submitCommunityFeeling(uId,imagUrl,feelingContent,mDate);
                 break;
             default:
         }

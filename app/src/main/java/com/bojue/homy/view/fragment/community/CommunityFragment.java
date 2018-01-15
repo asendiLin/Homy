@@ -49,6 +49,7 @@ public class CommunityFragment extends BaseFragment implements ICommunityView,Lo
     private AbstractCommunityPresenter mPresenter;
     private CommunityAdapter adapter;
     private int cId;
+    private int uId = 1;
 
     @Override
     public View createView(LayoutInflater inflater, ViewGroup container) {
@@ -103,7 +104,7 @@ public class CommunityFragment extends BaseFragment implements ICommunityView,Lo
             @Override
             public void onCheck(View view, int position) {
                 cId = position;
-                mPresenter.loadThumbUp(cId);
+                mPresenter.loadThumbUp(cId,uId);
             }
         });
         rv_community.setAdapter(adapter);

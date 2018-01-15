@@ -34,22 +34,24 @@ public class CommunityModel extends BaseModel implements ICommunityModel{
         return mService.loadComment(page, cId);
     }
 
+
     //提交评论
     @Override
-    public Observable<BaseEntity<List<CommentBean>>> submitComment(int uId, int cId, String commentContent) {
-        return mService.submitComment(uId,cId,commentContent);
+    public Observable<BaseEntity<CommentBean>> submitComment(int uId, int cId, String commentContent,boolean isReply,String repliedName) {
+        return mService.submitComment(uId,cId,commentContent,isReply,repliedName);
     }
 
 
     //提交心情
     @Override
-    public Observable<BaseEntity<List<CommunityBean>>> submitCommunityFeeling(int uId, String imagUrl, String feelingContent) {
-        return mService.submitCommunityFeeling(uId, imagUrl, feelingContent);
+    public Observable<BaseEntity<List<CommunityBean>>> submitCommunityFeeling(int uId, String imagUrl, String feelingContent,String mDate) {
+        return mService.submitCommunityFeeling(uId, imagUrl, feelingContent,mDate);
     }
+
 
     //提交用户点赞的方法
     @Override
-    public Observable<BaseEntity<List<CommunityBean>>> loadThumbUp(int cId) {
-        return mService.loadThumbUp(cId);
+    public Observable<BaseEntity<List<CommunityBean>>> loadThumbUp(int cId,int uId) {
+        return mService.loadThumbUp(cId,uId);
     }
 }

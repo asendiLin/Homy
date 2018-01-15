@@ -27,12 +27,12 @@ public class ComPre extends AbstractCommunityPresenter {
     }
 
     @Override
-    public void submitCommunityFeeling(int uId, String imagUrl, String feelingContent) {
+    public void submitCommunityFeeling(int uId, String imagUrl, String feelingContent,String mDate) {
 
     }
 
     @Override
-    public void loadThumbUp(int pageId) {
+    public void loadThumbUp(int pageId,int uId) {
         getView().thumbUpSuccess(pageId);
     }
 

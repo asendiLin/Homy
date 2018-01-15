@@ -39,12 +39,12 @@ public class CommentPresenter extends AbstractCommentPresenter {
 
     //提交评论
     @Override
-    public void submitComment(int uId, int cId, String commentContent) {
-        mModel.submitComment(uId, cId, commentContent)
-                .subscribe(new BaseObserver<List<CommentBean>>() {
+    public void submitComment(int uId, int cId, String commentContent,boolean isReply,String repliedName) {
+        mModel.submitComment(uId, cId, commentContent,isReply,repliedName)
+                .subscribe(new BaseObserver<CommentBean>() {
                     @Override
-                    public void onSuccess(List<CommentBean> data) {
-                        getView().showComment(data);
+                    public void onSuccess(CommentBean data) {
+                        getView().showoneContent(data);
                         getView().showSendSuccess();
                     }
 
@@ -53,7 +53,6 @@ public class CommentPresenter extends AbstractCommentPresenter {
                         getView().showSendFail();
                     }
                 });
-
 
     }
 

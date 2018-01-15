@@ -23,6 +23,7 @@
     <!--社区-->
     <string name="str_date">1月2日</string>
     <string name="str_name">Lizheng</string>
+    <string name="str_reply">请输入你的回复</string>
     <string name="str_sum">260</string>
     <string name="str_content">God say:There was light,It was light</string>
     <string name="str_content_comment">god say it was very good.</string>
@@ -31,6 +32,9 @@
     <string name="str_publish_feeling">输入你的感想...</string>
     <!--社区评论-->
     <string name="str_hint_comment">添加评论...</string>
+    <string name="str_yes">确定</string>
+    <string name="str_no">取消</string>
+    <string name="str_reply_name">回复：Lizheng</string>
 
     <!--个人中心-->
     <string name="str_nick_name">昵称</string>

@@ -15,23 +15,31 @@ public class CommentPreText extends AbstractCommentPresenter {
     @Override
     public void loadComment(int page, int cId) {
         commentBeanList = new ArrayList<>();
-        CommentBean people1 = new CommentBean("Lizheng1","1月1");
+        CommentBean people1 = new CommentBean("Lizheng1","1月1",false,"");
         commentBeanList.add(people1);
-        CommentBean people2 = new CommentBean("Lizheng2","1月2");
+        CommentBean people2 = new CommentBean("Lizheng2","1月2",false,"");
         commentBeanList.add(people2);
-        CommentBean people3 = new CommentBean("Lizheng3","1月3");
+        CommentBean people3 = new CommentBean("Lizheng3","1月3",false,"");
         commentBeanList.add(people3);
-        CommentBean people4 = new CommentBean("Lizheng4","1月4");
-        commentBeanList.add(people4);
+//        CommentBean people4 = new CommentBean("Lizheng4","1月4",false,"");
+//        commentBeanList.add(people4);
+//        CommentBean people5 = new CommentBean("Lizheng5","1月1",false,"");
+//        commentBeanList.add(people5);
+//        CommentBean people6 = new CommentBean("Lizheng6","1月2",false,"");
+//        commentBeanList.add(people6);
 
         getView().showComment(commentBeanList);
     }
 
     @Override
-    public void submitComment(int uId, int cId, String commentContent) {
-        CommentBean comment1 = new CommentBean("Lizheng5","2月1日");
-        commentBeanList.add(comment1);
-        getView().showComment(commentBeanList);
+    public void submitComment(int uId, int cId, String commentContent,boolean isReply, String repliedName) {
+        CommentBean comment1;
+        if(isReply){
+            comment1 = new CommentBean("Lizheng5","2月1日",isReply,repliedName);
+        }else {
+            comment1 = new CommentBean("Lizheng5", "2月1日", false,"");
+        }
+        getView().showoneContent(comment1);
         getView().showSendSuccess();
     }
 }

@@ -34,8 +34,8 @@
             </intent-filter>
         </service>
         <activity android:name=".view.activity.MainActivity"
-                  android:windowSoftInputMode="adjustPan|stateHidden"
-            >
+                  android:windowSoftInputMode="adjustPan|stateHidden">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

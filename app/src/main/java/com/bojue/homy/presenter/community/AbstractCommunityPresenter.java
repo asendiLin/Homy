@@ -14,9 +14,9 @@ public abstract class AbstractCommunityPresenter extends BasePresenter<ICommunit
     public abstract void loadCommunity(int page);
 
     //提交社区心情
-    public abstract void submitCommunityFeeling(int uId,String imagUrl,String feelingContent);
+    public abstract void submitCommunityFeeling(int uId,String imagUrl,String feelingContent,String mDate);
 
     //显示点赞
-    public abstract  void  loadThumbUp(int cId);
+    public abstract  void  loadThumbUp(int cId,int uId);
 
 }
