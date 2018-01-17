@@ -90,6 +90,7 @@ public class CommentActivity extends BaseActivity implements CommentView,View.On
         mSwipeRefreshLayout.setOnRefreshListener(mLoadDataScrollController);
     }
 
+
     private void initData() {
         mCommentBeanList = new ArrayList<>();
         //传入cId，点击某条心情的位置

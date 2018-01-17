@@ -15,12 +15,12 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/img_user_pic"
                 android:layout_marginLeft="@dimen/space_xl"
                 android:layout_marginTop="@dimen/space_l"
                 android:layout_centerHorizontal="true"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 android:src="@mipmap/ic_temp"
                 android:layout_width="@dimen/space_xxxl"
                 android:layout_height="@dimen/space_xxxl" />
@@ -75,6 +75,7 @@
 
             <Button
                 android:id="@+id/write_person_msg"
+                android:layout_marginTop="@dimen/space_m"
                 android:text="@string/str_write_message"
                 style="@style/person_header_btn"
                  />
@@ -84,7 +85,7 @@
     </LinearLayout>
     <View
        style="@style/person_view"
-        android:layout_height="@dimen/space_xl"/>
+        android:layout_height="@dimen/space_l"/>
     <LinearLayout
         android:orientation="vertical"
         android:layout_weight="30"

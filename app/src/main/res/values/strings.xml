@@ -14,6 +14,9 @@
     <string name="str_hint_number">请输入你的手机号码...</string>
     <string name="str_hint_pay">请输入酬劳...</string>
     <string name="str_hint_need">请输入需求详情...</string>
+
+
+
     <string-array name="need_type_arr">
         <item>跑腿</item>
         <item>代购</item>
@@ -47,14 +50,22 @@
     <!--注册界面-->
     <string name="str_text">让帮助成为你大学生活的一种娱乐</string>>
     <string name="str_hint_name">请输入你的昵称...</string>
+    <string name="str_hint_gender">请输入你的性别</string>
     <string name="str_hint_password">请设置你的密码...</string>
     <string name="str_hint_password_again">再次输入你的密码...</string>
     <string name="str_hint_phone">请输入你的手机号码...</string>
     <string name="str_hint_verification_Code">请输入你的验证码...</string>
     <string name="str_hint_get_verification_Code">获取验证码</string>
-    <string name="str_hint_register">注册</string>>
+    <string name="str_hint_register">注册</string>
+    <string name="str_hint_login">登陆</string>
+    <string name="str_drop_out">退出登录</string>
     <!--登陆界面-->
-    <string name="str_land_wechat">使用微信登陆:</string>
-    <string name="str_land_qq">使用QQ登陆:</string>
-    <string name="str_land_register">没有Hemy账号？点击注册</string>>
+    <string name="str_login_wechat">使用微信登陆:</string>
+    <string name="str_login_qq">使用QQ登陆:</string>
+    <string name="str_login_register">没有Hemy账号？点击注册</string>
+    <!--我的需求界面-->
+    <string name="str_demand_type">类型 :</string>
+    <string name="str_demand_start_time">发起时间 :</string>
+    <string name="str_demand_end_time">结束时间 :</string>
+    <string name="str_demand_price">Price :</string>
 </resources>

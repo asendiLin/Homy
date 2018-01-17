@@ -33,19 +33,23 @@
                 <action android:name="com.baidu.location.service_v2.2"/>
             </intent-filter>
         </service>
-        <activity android:name=".view.activity.MainActivity"
+        <activity android:name=".view.activity.land_register.StartActivity"
                   android:windowSoftInputMode="adjustPan|stateHidden">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".view.activity.land_register.LoginActivity" />
+        <activity android:name=".view.activity.MainActivity"/>
+        <activity android:name=".view.activity.land_register.RegisterActivity"/>
+        <activity android:name=".view.activity.person.AboutUsActivity"/>
+        <activity android:name=".view.activity.person.demand.MyDemandActivity"/>
+        <activity android:name=".view.activity.person.order.MyOrderActivity"/>
         <activity android:name=".view.activity.PublishFeelingActivity"/>
         <activity android:name=".view.activity.CommentActivity"/>
-        <activity android:name=".view.activity.find.NeedDetailActivity">
-        </activity>
+        <activity android:name=".view.activity.find.NeedDetailActivity"/>
+        <activity android:name=".view.activity.person.message.MessageActivity"/>
     </application>
 
 </manifest>

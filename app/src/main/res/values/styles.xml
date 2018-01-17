@@ -168,7 +168,7 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
     <!--登录界面的使用qq/微信ImageButton-->
-    <style name="fragment_land_btn">
+    <style name="fragment_login_btn">
         <item name="android:background">@android:color/transparent</item>>
         <item name="android:scaleType">fitXY</item>>
         <item name="android:layout_marginLeft">@dimen/space_xxxxl</item>>
@@ -177,11 +177,33 @@
         <item name="android:layout_width">@dimen/space_l</item>
     </style>
     <!--登陆界面的使用微信/qq文本-->
-    <style name="fragment_land_text">
+    <style name="fragment_login_text">
         <item name="android:layout_marginTop">@dimen/space_m</item>>
         <item name="android:layout_marginLeft">@dimen/space_xxxl</item>>
         <item name="android:layout_height">wrap_content</item>>
         <item name="android:layout_width">wrap_content</item>>
     </style>
 
+    <!--我的需求界面的LinLayout-->
+    <style name="fragment_my_demand">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>\
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginTop">@dimen/space_xs</item>
+    </style>
+    <!--我的需求界面的TextView-->
+    <style name="fragment_my_demand_text_view">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/txt_m</item>
+    </style>
+    <!--我的需求界面的ImageView-->
+    <style name="fragment_my_demand_image">
+        <item name="android:layout_width">@dimen/space_l</item>
+        <item name="android:layout_height">@dimen/space_l</item>
+        <item name="android:src">@mipmap/ic_launcher_point</item>
+        <item name="android:layout_marginLeft">@dimen/space_ss</item>
+        <item name="android:layout_marginTop">@dimen/space_xxs</item>
+    </style>
 </resources>

@@ -20,6 +20,7 @@
     <dimen name="space_xl">36dp</dimen>
     <dimen name="space_xxl">48dp</dimen>
     <dimen name="space_xxxl">72dp</dimen>
-    <dimen name="space_xxxxxl">140dp</dimen>
     <dimen name="space_xxxxl">96dp</dimen>
+    <dimen name="space_xxxxxl">140dp</dimen>
+
 </resources>
