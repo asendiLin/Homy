@@ -56,6 +56,7 @@ public class CommentActivity extends BaseActivity implements CommentView,View.On
     private LinearLayoutManager linearLayoutManager;
     private AlertDialog.Builder dialog;
     private EditText et_reply_content;
+
     private AlertDialog dialogReply;
     private String repliedName;
 
@@ -80,6 +81,7 @@ public class CommentActivity extends BaseActivity implements CommentView,View.On
         rv_comment = findViewById(R.id.rv_comment);
         //设置为线性布局排列
         linearLayoutManager = new LinearLayoutManager(this);
+//        linearLayoutManager.setStackFromEnd(true);
         rv_comment.setLayoutManager(linearLayoutManager);
 
         //设置下拉刷新的监听和布局
@@ -189,24 +191,23 @@ public class CommentActivity extends BaseActivity implements CommentView,View.On
         if(page == 1){
             mCommentBeanList.clear();
         }
+
         mCommentBeanList.addAll(commentBeanList);
         mAdapter.notifyDataSetChanged();
     }
 
-    /**
-     * 显示评论或回复
-     * @param data
-     */
-    @Override
-    public void showoneContent(CommentBean data) {
-        mCommentBeanList.add(data);
-    }
 
-    //发送评论成功时回调
+    /**
+     * 发送评论成功时回调
+     */
+
     @SuppressLint("RestrictedApi")
     @Override
-    public void showSendSuccess() {
-        rv_comment.smoothScrollToPosition(mCommentBeanList.size());
+    public void showSendSuccess(CommentBean data) {
+        mCommentBeanList.add(0,data);
+        mAdapter.notifyDataSetChanged();
+        rv_comment.smoothScrollToPosition(0);
+
          dialog = new AlertDialog.Builder(this)
                  .setMessage("发送成功")
                  .setCancelable(false)
@@ -217,7 +218,7 @@ public class CommentActivity extends BaseActivity implements CommentView,View.On
                      }
                  });
          dialog.show();
-        mAdapter.notifyDataSetChanged();
+
     }
     //发送评论失败时时回调
     @Override
@@ -232,12 +233,13 @@ public class CommentActivity extends BaseActivity implements CommentView,View.On
         mPresenter.loadComment(page,cId);
         mLoadDataScrollController.setLoadDataStatus(false);
         mSwipeRefreshLayout.setRefreshing(false);
+
     }
     //加载更多
     @Override
     public void onLoadMore() {
-//        ++page;
-//        mPresenter.loadComment(page,cId);
-//        mLoadDataScrollController.setLoadDataStatus(false);
+            ++page;
+            mPresenter.loadComment(page, cId);
+            mLoadDataScrollController.setLoadDataStatus(false);
     }
 }

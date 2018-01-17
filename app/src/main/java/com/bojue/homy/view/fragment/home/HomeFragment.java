@@ -1,6 +1,8 @@
 package com.bojue.homy.view.fragment.home;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.Gravity;
@@ -77,6 +79,7 @@ private final static String TAG="HOME_FRAGMENT";
         mPresenter.attachView(this);
         mPresenter.getMarker(1);
     }
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

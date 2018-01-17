@@ -44,7 +44,7 @@ public class CommunityModel extends BaseModel implements ICommunityModel{
 
     //提交心情
     @Override
-    public Observable<BaseEntity<List<CommunityBean>>> submitCommunityFeeling(int uId, String imagUrl, String feelingContent,String mDate) {
+    public Observable<BaseEntity<CommunityBean>> submitCommunityFeeling(int uId, String imagUrl, String feelingContent,String mDate) {
         return mService.submitCommunityFeeling(uId, imagUrl, feelingContent,mDate);
     }
 

@@ -17,12 +17,12 @@ public class FindNeedPresenterText extends AbstractFindNeedPresenter {
         mNeedItems.add(need1);
         NeedItem need2 = new NeedItem("1月2日","阿森第2","2");
         mNeedItems.add(need2);
-        NeedItem need3 = new NeedItem("1月3日","阿森第3","3");
-        mNeedItems.add(need3);
-        NeedItem need4 = new NeedItem("1月4日","阿森第4","4");
-        mNeedItems.add(need4);
-        NeedItem need5 = new NeedItem("1月5日","阿森第5","5");
-        mNeedItems.add(need5);
+//        NeedItem need3 = new NeedItem("1月3日","阿森第3","3");
+//        mNeedItems.add(need3);
+//        NeedItem need4 = new NeedItem("1月4日","阿森第4","4");
+//        mNeedItems.add(need4);
+//        NeedItem need5 = new NeedItem("1月5日","阿森第5","5");
+//        mNeedItems.add(need5);
 
         getView().showNeedItems(mNeedItems);
     }

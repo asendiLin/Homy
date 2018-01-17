@@ -16,7 +16,15 @@
         android:hint="@string/str_publish_feeling"
         android:background="@android:color/transparent"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_xxxxxl" />
+        android:layout_height="@dimen/space_xxxxl" />
+    <ImageView
+        android:id="@+id/iv_public_feeling"
+        android:layout_marginTop="@dimen/space_s"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/space_xs"
+        android:layout_marginRight="@dimen/space_xs"
+        android:layout_height="@dimen/space_xxxxxl"
+        android:scaleType="centerCrop"/>
     <ImageButton
         android:id="@+id/ib_feeling_picture"
         android:background="@android:color/transparent"

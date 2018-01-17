@@ -35,7 +35,7 @@ public interface ICommunityModel {
      * imagUrl  发布的图片信息
      * feelingContent 发布的心情内容
      */
-    Observable<BaseEntity<List<CommunityBean>>> submitCommunityFeeling(int uId,String imagUrl,String feelingContent ,String mDate);
+    Observable<BaseEntity<CommunityBean>> submitCommunityFeeling(int uId,String imagUrl,String feelingContent ,String mDate);
         /*提交用户点赞的方法
 * pageId  评论ID（告知哪条心情）
 * uId    用户ID

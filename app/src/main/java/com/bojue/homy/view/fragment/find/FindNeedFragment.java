@@ -113,7 +113,6 @@ public class FindNeedFragment extends BaseFragment implements IFindNeedView,
         //toDo:load more data
         mPresenter.loadNeed("type","uId",page);
         mLoadDataScrollController.setLoadDataStatus(false);
-        mSwipeRefreshLayout.setRefreshing(false);
     }
 
     @Override

@@ -39,7 +39,6 @@ public class CommentPreText extends AbstractCommentPresenter {
         }else {
             comment1 = new CommentBean("Lizheng5", "2月1日", false,"");
         }
-        getView().showoneContent(comment1);
-        getView().showSendSuccess();
+        getView().showSendSuccess(comment1);
     }
 }

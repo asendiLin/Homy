@@ -28,7 +28,7 @@ public class ComPre extends AbstractCommunityPresenter {
 
     @Override
     public void submitCommunityFeeling(int uId, String imagUrl, String feelingContent,String mDate) {
-
+        getView().sendSuccess();
     }
 
     @Override

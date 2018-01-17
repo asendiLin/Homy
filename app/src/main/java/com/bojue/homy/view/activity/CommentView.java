@@ -14,9 +14,9 @@ public interface CommentView extends IView {
     //显示评论列表
     void showComment(List<CommentBean> commentBeanList);
     //显示评论或回复
-    void showoneContent(CommentBean data);
+//    void showoneContent(CommentBean data);
     //发送评论成功时回调
-    void showSendSuccess();
+    void showSendSuccess(CommentBean data);
     //发送评论失败时时回调
     void showSendFail();
 }

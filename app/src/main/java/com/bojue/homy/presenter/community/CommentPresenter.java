@@ -44,8 +44,7 @@ public class CommentPresenter extends AbstractCommentPresenter {
                 .subscribe(new BaseObserver<CommentBean>() {
                     @Override
                     public void onSuccess(CommentBean data) {
-                        getView().showoneContent(data);
-                        getView().showSendSuccess();
+                        getView().showSendSuccess(data);
                     }
 
                     @Override

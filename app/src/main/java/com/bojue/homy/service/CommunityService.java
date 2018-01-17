@@ -44,7 +44,7 @@ public interface CommunityService {
      * mDate  当前时间
      */
     @POST("")
-    Observable<BaseEntity<List<CommunityBean>>> submitCommunityFeeling(@Field("") int uId,@Field("") String imagUrl, @Field("") String feelingContent,@Field("")String mDate);
+    Observable<BaseEntity<CommunityBean>> submitCommunityFeeling(@Field("") int uId,@Field("") String imagUrl, @Field("") String feelingContent,@Field("")String mDate);
 
     /*提交用户点赞的方法
    * cId  评论ID（告知哪条心情）
