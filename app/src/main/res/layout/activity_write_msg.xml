@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/title_bar_layout"/>
+    <RelativeLayout
+        android:layout_marginTop="@dimen/space_xxl"
+        android:layout_marginLeft="@dimen/space_xxl"
+        android:layout_marginRight="@dimen/space_xxl"
+        android:background="@color/colorTextWhite"
+        style="@style/fragment_register">
+        <ImageView
+            android:src="@mipmap/ic_launcher_head"
+            style="@style/fragment_register_image"/>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <EditText
+                android:hint="@string/str_hint_name"
+                style="@style/fragment_register_edit_text" />
+        </LinearLayout>
+        <View
+            style="@style/person_view"
+            android:layout_height="@dimen/txt_xs"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/space_xxl"
+        android:layout_marginRight="@dimen/space_xxl"
+        android:background="@color/colorTextWhite"
+        style="@style/fragment_register">
+        <ImageView
+            android:src="@mipmap/ic_launcher_head"
+            style="@style/fragment_register_image"/>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <EditText
+                android:hint="@string/str_hint_gender"
+                style="@style/fragment_register_edit_text" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/space_xxl"
+        android:layout_marginRight="@dimen/space_xxl"
+        android:background="@color/colorTextWhite"
+        style="@style/fragment_register">
+        <ImageView
+            android:src="@mipmap/ic_launcher_phone"
+            style="@style/fragment_register_image"/>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <EditText
+                android:hint="@string/str_hint_phone"
+                style="@style/fragment_register_edit_text" />
+        </LinearLayout>
+    </RelativeLayout>
+    <Button
+        android:id="@+id/drop_out"
+        android:text="@string/str_drop_out"
+        style="@style/global_bt_style" />
+
+
+</LinearLayout>

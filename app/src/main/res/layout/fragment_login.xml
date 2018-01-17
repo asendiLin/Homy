@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/title_bar_layout"/>
+    <LinearLayout
+        android:layout_weight="100"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <ImageView
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_temp"
+            android:layout_width="@dimen/space_xxxxl"
+            android:layout_height="@dimen/space_xxxxl" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="181"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/space_xxs"
+            style="@style/fragment_register">
+            <ImageView
+                android:src="@mipmap/ic_launcher_head"
+                style="@style/fragment_register_image"/>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:id="@+id/login_phone"
+                    android:layout_marginLeft="@dimen/space_m"
+                    android:hint="@string/str_hint_phone"
+                    style="@style/fragment_register_edit_text" />
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="@dimen/space_l"
+            style="@style/fragment_register">
+            <ImageView
+                android:src="@mipmap/ic_launcher_key"
+                style="@style/fragment_register_image"/>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <EditText
+                    android:id="@+id/login_password"
+                    android:inputType="textPassword"
+                    android:layout_marginLeft="@dimen/space_xxs"
+                    android:hint="@string/str_hint_password"
+                    style="@style/fragment_register_edit_text" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/login"
+            android:layout_marginTop="@dimen/space_l"
+            android:layout_gravity="center"
+            style="@style/global_bt_style"
+            android:text="@string/str_hint_login"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="@string/str_login_wechat"
+                    style="@style/fragment_login_text" />
+                <ImageButton
+                    android:id="@+id/login_wechat"
+                    android:src="@mipmap/ic_launcher_wechat"
+                    style="@style/fragment_login_btn" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="@string/str_login_qq"
+                    style="@style/fragment_login_text" />
+                <ImageButton
+                    android:id="@+id/login_qq"
+                    android:src="@mipmap/ic_launcher_qq"
+                    style="@style/fragment_login_btn" />
+                <TextView
+                    android:id="@+id/register"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/str_login_register"
+                    android:layout_marginTop="@dimen/space_l"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/title_bar_layout"/>
+    <TextView
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/txt_sm"
+        android:text="@string/app_name"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+    <TextView
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/txt_s_plus"
+        android:text="@string/str_text"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         />
+    <RelativeLayout
+        style="@style/fragment_register">
+        <ImageView
+            android:src="@mipmap/ic_launcher_head"
+            style="@style/fragment_register_image"/>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <EditText
+                android:hint="@string/str_hint_name"
+                style="@style/fragment_register_edit_text" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        style="@style/fragment_register">
+        <ImageView
+            android:src="@mipmap/ic_launcher_lock"
+            style="@style/fragment_register_image"/>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <EditText
+                android:hint="@string/str_hint_password"
+                style="@style/fragment_register_edit_text" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        style="@style/fragment_register">
+        <ImageView
+            android:src="@mipmap/ic_launcher_lock"
+            style="@style/fragment_register_image"/>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <EditText
+                android:hint="@string/str_hint_password_again"
+                style="@style/fragment_register_edit_text" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        style="@style/fragment_register">
+        <ImageView
+            android:src="@mipmap/ic_launcher_phone"
+            style="@style/fragment_register_image"/>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <EditText
+                android:hint="@string/str_hint_phone"
+                style="@style/fragment_register_edit_text" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        style="@style/fragment_register">
+        <Button
+            android:background="@drawable/edit_text_bg"
+            android:text="@string/str_hint_get_verification_Code"
+            android:layout_width="@dimen/space_xxxxl"
+            android:layout_height="@dimen/space_xxl"
+            />
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <EditText
+                android:layout_marginLeft="@dimen/space_m"
+                android:hint="@string/str_hint_verification_Code"
+                style="@style/fragment_register_edit_text" />
+        </LinearLayout>
+    </LinearLayout>
+        <Button
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            style="@style/global_bt_style"
+            android:text="@string/str_hint_register"
+
+            />
+
+    </LinearLayout>
+
+
+
