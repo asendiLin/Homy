@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/space_l"
-    android:layout_marginBottom="@dimen/space_m"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         app:cardElevation="@dimen/space_xs"
-        app:cardCornerRadius="@dimen/space_xxs"
-        android:layout_marginTop="@dimen/space_l"
-        android:layout_marginRight="@dimen/space_m"
-        android:layout_marginLeft="@dimen/space_m"
+        app:cardCornerRadius="@dimen/space_s"
+        android:layout_margin="@dimen/space_s"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_xxxxxl">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/space_xs"
+            android:layout_marginBottom="@dimen/space_xs"
+            >
             <LinearLayout
                 android:layout_marginBottom="@dimen/space_xs"
                 android:layout_width="match_parent"
@@ -94,13 +90,8 @@
             </LinearLayout>
         </LinearLayout>
 
-
-
     </android.support.v7.widget.CardView>
 
-
-
-</android.support.constraint.ConstraintLayout>
 
 
 

@@ -23,10 +23,6 @@
                 android:hint="@string/str_hint_name"
                 style="@style/fragment_register_edit_text" />
         </LinearLayout>
-        <View
-            style="@style/person_view"
-            android:layout_height="@dimen/txt_xs"
-            android:layout_alignParentBottom="true" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_marginLeft="@dimen/space_xxl"

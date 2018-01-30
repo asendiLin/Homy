@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,10 @@ public class PersonFragment extends BaseFragment implements IPersonView,View.OnC
     private ImageButton next_about_us;
     private Button write_person_msg;
     private ImageView img_user_pic;
+    private LinearLayout orderLinearLayout;
+    private LinearLayout demandLinearLayout;
+    private LinearLayout aboutLinearLayout;
+
     private AbstractPersonPresenter mPresenter;
 
     @Override
@@ -45,29 +50,39 @@ public class PersonFragment extends BaseFragment implements IPersonView,View.OnC
         next_about_us = mView.findViewById(R.id.next_about_us);
         write_person_msg = mView.findViewById(R.id.write_person_msg);
         img_user_pic = mView.findViewById(R.id.img_user_pic);
+
+        orderLinearLayout=mView.findViewById(R.id.ts_order);
+        demandLinearLayout=mView.findViewById(R.id.ts_demand);
+        aboutLinearLayout=mView.findViewById(R.id.ts_about_us);
+
         return mView;
     }
 
     public void initData() {
-        next_order.setOnClickListener(this);
-        next_demand.setOnClickListener(this);
-        next_about_us.setOnClickListener(this);
+
+        orderLinearLayout.setOnClickListener(this);
+        demandLinearLayout.setOnClickListener(this);
+        aboutLinearLayout.setOnClickListener(this);
+
+//        next_order.setOnClickListener(this);
+//        next_demand.setOnClickListener(this);
+//        next_about_us.setOnClickListener(this);
         write_person_msg.setOnClickListener(this);
         img_user_pic.setOnClickListener(this);
     }
     public void onClick(View view){
         switch (view.getId()){
-            case R.id.next_order:
+            case R.id.ts_order:
                 Toast.makeText(getContext(),"我的订单",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getContext(), MyOrderActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.next_demand:
+            case R.id.ts_demand:
                 Toast.makeText(getContext(),"我的需求",Toast.LENGTH_SHORT).show();
                 Intent intent2 = new Intent(getContext(), MyDemandActivity.class);
                 startActivity(intent2);
                 break;
-            case R.id.next_about_us:
+            case R.id.ts_about_us:
                 Toast.makeText(getContext(),"关于我们",Toast.LENGTH_SHORT).show();
                 Intent intent3 = new Intent(getActivity(), AboutUsActivity.class);
                 startActivity(intent3);

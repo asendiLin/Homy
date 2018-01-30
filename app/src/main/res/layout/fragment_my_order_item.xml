@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/space_m"
-    android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         app:cardElevation="@dimen/space_xs"
-        app:cardCornerRadius="@dimen/space_xxs"
-        android:layout_marginTop="@dimen/space_l"
-        android:layout_marginRight="@dimen/space_m"
-        android:layout_marginLeft="@dimen/space_m"
+        app:cardCornerRadius="@dimen/space_s"
+        android:layout_margin="@dimen/space_s"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -25,7 +18,7 @@
                 android:layout_marginBottom="@dimen/space_xs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_marginLeft="@dimen/space_m"
                     android:src="@mipmap/ic_temp"
                     android:layout_width="@dimen/space_xxl"
@@ -83,7 +76,7 @@
                     style="@style/fragment_my_demand_text_view" />
             </LinearLayout>
             <LinearLayout
-                android:layout_marginBottom="@dimen/space_ss"
+
                 style="@style/fragment_my_demand">
                 <ImageView
                     style="@style/fragment_my_demand_image" />
@@ -98,7 +91,7 @@
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
-</LinearLayout>
+
 
 
 
