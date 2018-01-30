@@ -1,16 +1,12 @@
 package com.bojue.homy.view.fragment.home;
 
-import android.content.pm.PackageManager;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -28,6 +24,7 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.mapapi.model.LatLng;
 import com.bojue.homy.R;
 import com.bojue.homy.base.BaseFragment;
@@ -37,6 +34,7 @@ import com.bojue.homy.presenter.home.AbstractHomePresenter;
 import com.bojue.homy.presenter.home.HomePresenter;
 import com.bojue.homy.presenter.home.TestHomePresenter;
 import com.bojue.homy.view.IView;
+import com.bojue.homy.view.activity.find.NeedDetailActivity;
 
 import java.util.List;
 
@@ -46,7 +44,7 @@ import java.util.List;
 
 public class HomeFragment extends BaseFragment implements IHomeView {
 private final static String TAG="HOME_FRAGMENT";
-    private MapView mMapView;
+    private TextureMapView mMapView;
     private BaiduMap mBaiduMap;
     private BitmapDescriptor mIcon;
     private MyLocationConfiguration.LocationMode mLocationMode;
@@ -141,6 +139,9 @@ private final static String TAG="HOME_FRAGMENT";
                 Bundle bundle=marker.getExtraInfo();
                 MarkerBean markerBean= (MarkerBean) bundle.getSerializable("markerBean");
                 Log.i(TAG, "onMarkerClick: Latitude:"+markerBean.getLatitude());
+                Intent intent=new Intent(getActivity(), NeedDetailActivity.class);
+                //toDo:传送需求的id
+                startActivity(intent);
                 return false;
             }
         });

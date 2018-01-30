@@ -52,7 +52,7 @@ public class PublishFeelingActivity extends BaseActivity implements ICommunityVi
 
                 ArrayList<String> pathList = Album.parseResult(data);
                 imagUrl = pathList.get(0);
-               Bitmap bitmap = BitmapFactory.decodeFile(imagUrl);
+                Bitmap bitmap = BitmapFactory.decodeFile(imagUrl);
                 iv_public_feeling.setImageBitmap(bitmap);
             } else if (resultCode == RESULT_CANCELED) { // User canceled.
                 // 用户取消了操作。

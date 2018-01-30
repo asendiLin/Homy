@@ -7,6 +7,7 @@ import java.util.List;
 import io.reactivex.Observable;
 
 import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 /**
@@ -14,24 +15,34 @@ import retrofit2.http.POST;
  * 注册界面的请求网络Service
  */
 
-public interface RegisterService {
+public interface LoginAndRegisterService {
     /**
-     * 第一次提交，提交用户名字
+     * 登录
      * @param name
      * @return
      */
+    @FormUrlEncoded
     @POST("")
-    Observable<BaseEntity<List<RegisterBean>>> submitRegisterContentFirst(@Field("name") String name);
+    Observable<BaseEntity<String>>login(@Field("") String name,@Field("") String pwd);
 
     /**
-     * 第二次提交 提交验证码
-     * @param checkcode
+     * 验证用户名
+     * @param name
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("")
+    Observable<BaseEntity<String>>submitCheckName(@Field("")String name);
+
+    /**
+     * 获取验证码
+     * @param code
      * @return
      */
     @POST("")
-    Observable<BaseEntity<List<RegisterBean>>> submitRegisterContentSecond(@Field("checkcode") int checkcode);
+    Observable<BaseEntity<String>> getRegisterCode(@Field("") String code);
     /**
-     * 第三次提交，提交全部信息
+     * 提交注册信息
      * @param name
      * @param password 密码
      * @param password_again 再次的密码
@@ -40,7 +51,7 @@ public interface RegisterService {
      * @return
      */
     @POST("")
-    Observable<BaseEntity<List<RegisterBean>>> submitRegisterContentThird(@Field("name") String name,
+    Observable<BaseEntity<String>> submitRegisterContent(@Field("name") String name,
                                                                      @Field("password") String password,
                                                                      @Field("password_again") String password_again,
                                                                      @Field("phone") int phone,

@@ -95,7 +95,7 @@ public class MainActivity extends BaseActivity implements MainView{
 
         tabHost.setCurrentTab(0);
 
-        rgBottom.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+           rgBottom.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {

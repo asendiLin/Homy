@@ -11,8 +11,8 @@
         >
         <com.bojue.homy.widget.CircleImageView
             android:id="@+id/img_user_pic"
-            android:layout_width="@dimen/space_xxl"
-            android:layout_height="@dimen/space_xxl"
+            android:layout_width="@dimen/space_xxxl"
+            android:layout_height="@dimen/space_xxxl"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_temp"
             android:layout_marginRight="@dimen/space_ss"
@@ -64,7 +64,7 @@
             android:text="13420118899"
             android:layout_below="@id/img_user_pic"
             android:layout_marginLeft="@dimen/space_l"
-            android:layout_marginTop="@dimen/space_l"
+            android:layout_marginTop="@dimen/space_m"
             android:layout_marginBottom="@dimen/space_ss"
             android:textColor="@color/colorBlack"
             />

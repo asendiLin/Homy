@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bojue.homy.view.activity.ChatActivity">
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/chatRecyclerView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    ></android.support.v7.widget.RecyclerView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+            android:id="@+id/edit_chat_content"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_xl"
+            android:background="@drawable/edit_text_bg"
+            android:hint="@string/str_chat_et_hint"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/space_xl"
+            android:background="@drawable/bt_bg"
+            android:layout_alignParentRight="true"
+            android:text="@string/str_btn_send"
+            android:textColor="@color/colorTextWhite"
+            android:onClick="onSend"
+            />
+    </RelativeLayout>
+</LinearLayout>

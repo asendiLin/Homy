@@ -1,7 +1,10 @@
 package com.bojue.homy.utils.https;
 
 import com.bojue.homy.global.GlobalContent;
+import com.bojue.homy.utils.https.interceptor.AddCookiesInterceptor;
+import com.bojue.homy.utils.https.interceptor.SaveCookieInterceptor;
 
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -20,7 +23,12 @@ public class RetrofitFactory {
         if (mRetorfit==null){
             synchronized (RetrofitFactory.class){
                 if (mRetorfit==null){
+                    OkHttpClient okHttpClient=new OkHttpClient();
+                    okHttpClient.interceptors().add(new AddCookiesInterceptor());
+                    okHttpClient.interceptors().add(new SaveCookieInterceptor());
+
                     mRetorfit=new Retrofit.Builder()
+                            .client(okHttpClient)
                             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                             .addConverterFactory(GsonConverterFactory.create())
                             .baseUrl(GlobalContent.BASEURL)
