@@ -24,7 +24,6 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.mapapi.model.LatLng;
 import com.bojue.homy.R;
 import com.bojue.homy.base.BaseFragment;
@@ -44,7 +43,7 @@ import java.util.List;
 
 public class HomeFragment extends BaseFragment implements IHomeView {
 private final static String TAG="HOME_FRAGMENT";
-    private TextureMapView mMapView;
+    private MapView mMapView;
     private BaiduMap mBaiduMap;
     private BitmapDescriptor mIcon;
     private MyLocationConfiguration.LocationMode mLocationMode;
@@ -126,7 +125,7 @@ private final static String TAG="HOME_FRAGMENT";
     public void onDestroy() {
         super.onDestroy();
         mMapView.onDestroy();
-
+        mPresenter.detachView();
     }
 
     private void initListener() {

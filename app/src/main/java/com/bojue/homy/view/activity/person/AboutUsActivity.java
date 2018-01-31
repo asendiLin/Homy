@@ -17,6 +17,7 @@ import com.bojue.homy.view.activity.MainActivity;
 import com.bojue.homy.view.activity.land_register.RegisterActivity;
 import com.bumptech.glide.util.Util;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,7 +27,6 @@ import java.util.Set;
  */
 
 public class AboutUsActivity extends BaseActivity {
-
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);

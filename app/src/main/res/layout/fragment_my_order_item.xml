@@ -3,7 +3,7 @@
     <android.support.v7.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:cardElevation="@dimen/space_xs"
+        app:elevation="@dimen/space_xs"
         app:cardCornerRadius="@dimen/space_s"
         android:layout_margin="@dimen/space_s"
         android:layout_width="match_parent"
@@ -11,9 +11,11 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/space_s"
+            android:paddingBottom="@dimen/space_xs"
+            >
             <LinearLayout
-                android:layout_marginTop="@dimen/space_s"
                 android:orientation="horizontal"
                 android:layout_marginBottom="@dimen/space_xs"
                 android:layout_width="match_parent"
@@ -76,7 +78,6 @@
                     style="@style/fragment_my_demand_text_view" />
             </LinearLayout>
             <LinearLayout
-
                 style="@style/fragment_my_demand">
                 <ImageView
                     style="@style/fragment_my_demand_image" />

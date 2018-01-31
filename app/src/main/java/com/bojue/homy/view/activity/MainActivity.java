@@ -4,8 +4,10 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTabHost;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.widget.RadioGroup;
 import android.widget.TabHost;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 import com.baidu.mapapi.SDKInitializer;
 import com.bojue.homy.R;
 import com.bojue.homy.base.BaseActivity;
+import com.bojue.homy.base.BaseFragment;
 import com.bojue.homy.view.fragment.community.CommunityFragment;
 import com.bojue.homy.view.fragment.home.HomeFragment;
 import com.bojue.homy.view.fragment.publish.PublishFragment;
@@ -31,6 +34,9 @@ public class MainActivity extends BaseActivity implements MainView{
     private RadioGroup rgBottom;
     private FragmentTabHost tabHost;
     private Class[] fragments;
+    private List<BaseFragment> mFragmentList;
+    private BaseFragment contentFragment;
+    private int position=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,44 +90,85 @@ public class MainActivity extends BaseActivity implements MainView{
     }
 
     private void initData() {
-        fragments = new Class[]{HomeFragment.class, FindNeedFragment.class,
-                PublishFragment.class, CommunityFragment.class, PersonFragment.class};
+//        fragments = new Class[]{HomeFragment.class, FindNeedFragment.class,
+//                PublishFragment.class, CommunityFragment.class, PersonFragment.class};
+//
+//        tabHost.setup(getApplicationContext(),getSupportFragmentManager(),R.id.flContent);
+//        for (int i = 0; i < fragments.length; i++) {
+//            TabHost.TabSpec tabSpec = tabHost.newTabSpec(String.valueOf(i)).setIndicator(String.valueOf(i));
+//            tabHost.addTab(tabSpec, fragments[i], null);
+//        }
 
-        tabHost.setup(getApplicationContext(),getSupportFragmentManager(),R.id.flContent);
-        for (int i = 0; i < fragments.length; i++) {
-            TabHost.TabSpec tabSpec = tabHost.newTabSpec(String.valueOf(i)).setIndicator(String.valueOf(i));
-            tabHost.addTab(tabSpec, fragments[i], null);
-        }
+//        tabHost.setCurrentTab(0);
 
-        tabHost.setCurrentTab(0);
+        mFragmentList=new ArrayList<>(5);
+        mFragmentList.add(new HomeFragment());
+        mFragmentList.add(new FindNeedFragment());
+        mFragmentList.add(new PublishFragment());
+        mFragmentList.add(new CommunityFragment());
+        mFragmentList.add(new PersonFragment());
 
            rgBottom.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.rbHome:
-                        tabHost.setCurrentTab(0);
+//                        tabHost.setCurrentTab(0);
+                        position=0;
                         break;
                     case R.id.rbSearch:
-                        tabHost.setCurrentTab(1);
+//                        tabHost.setCurrentTab(1);
+                        position=1;
                         break;
                     case R.id.rbPublish:
-                        tabHost.setCurrentTab(2);
+//                        tabHost.setCurrentTab(2);
+                        position=2;
                         break;
                     case R.id.rbCommunity:
-                        tabHost.setCurrentTab(3);
+//                        tabHost.setCurrentTab(3);
+                        position=3;
                         break;
                     case R.id.rbPerson:
-                        tabHost.setCurrentTab(4);
+//                        tabHost.setCurrentTab(4);
+                        position=4;
                         break;
                     default:
                         break;
                 }
+
+                //获取点击的界面
+                BaseFragment toFragment =getFragment(position);
+
+                //切换界面
+                switchFragment(contentFragment,toFragment);
             }
         });
 
     }
 
+//切换Fragment
+    private void switchFragment(BaseFragment fromFragment, BaseFragment toFragment) {
+        if (fromFragment!=toFragment){
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft=fm.beginTransaction();
+
+            contentFragment=toFragment;
+            if ( fromFragment !=null )
+                ft.hide(fromFragment);
+
+            if (!toFragment.isAdded()){
+                if (toFragment!=null)
+                    ft.add(R.id.flContent,toFragment).commit();
+            }else {
+                if (toFragment!=null)
+                    ft.show(toFragment).commit();
+            }
+        }
+    }
+//获取选中的Fragment
+    private BaseFragment getFragment(int position) {
+        return mFragmentList.get(position);
+    }
     @Override
     public void showLoading() {
 
