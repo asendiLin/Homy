@@ -17,6 +17,7 @@ import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewStub;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -38,24 +39,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommentActivity extends BaseActivity implements CommentView,View.OnClickListener,LoadDataScrollController.OnRecyclerRefreshListener{
+
     private ImageButton ib_back_community;
     private Button bt_send_comment;
     private Button bt_send_reply;
     private Button bt_cancel_reply;
     private RecyclerView rv_comment;
-//    private TextView dialog_title;
+    private EditText et_comment;
+    private EditText et_reply_content;
+    private ViewStub mViewStub;
+    private View errView;
+    //    private TextView dialog_title;
     private CommentAdapter mAdapter;
     private LoadDataScrollController mLoadDataScrollController;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private List<CommentBean> mCommentBeanList;
-    private EditText et_comment;
     private AbstractCommentPresenter mPresenter;
     private int page =1;
     private int cId;
     private int uId =1;
     private LinearLayoutManager linearLayoutManager;
     private AlertDialog.Builder dialog;
-    private EditText et_reply_content;
 
     private AlertDialog dialogReply;
     private String repliedName;
@@ -79,6 +83,7 @@ public class CommentActivity extends BaseActivity implements CommentView,View.On
         bt_send_comment.setOnClickListener(this);
         mSwipeRefreshLayout = findViewById(R.id.refreshLayout);
         rv_comment = findViewById(R.id.rv_comment);
+        mViewStub = findViewById(R.id.view_stub_err);
         //设置为线性布局排列
         linearLayoutManager = new LinearLayoutManager(this);
 //        linearLayoutManager.setStackFromEnd(true);
@@ -183,6 +188,29 @@ public class CommentActivity extends BaseActivity implements CommentView,View.On
 
     @Override
     public void hideLoading(boolean isSuccess) {
+
+        if (!isSuccess) {
+            mSwipeRefreshLayout.setVisibility(View.GONE);
+
+            if (errView==null){//显示错误界面
+                errView = mViewStub.inflate();
+                Button reloadBtn = errView.findViewById(R.id.btn_err);
+                reloadBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //toDo:reload data.
+
+                    }
+                });
+            }
+        }else {//显示加载完成后的界面
+            mSwipeRefreshLayout.setVisibility(View.VISIBLE);
+            if (errView!=null)
+                errView.setVisibility(View.GONE);
+        }
+
+        mLoadDataScrollController.setLoadDataStatus(false);
+        mSwipeRefreshLayout.setRefreshing(false);
 
     }
     //回调CommentView接口

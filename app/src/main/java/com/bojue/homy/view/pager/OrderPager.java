@@ -6,6 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.bojue.homy.R;
 import com.bojue.homy.base.BasePager;
@@ -28,10 +31,14 @@ import java.util.List;
 public class OrderPager extends BasePager implements IPersonView,LoadDataScrollController.OnRecyclerRefreshListener{
     private List<PersonBean> mPersonList;
     private OrderItemAdapter mAdapter;//item适配器
+
     private RecyclerView mRecyclerView;
     private AbstractPersonPresenter mPresenter;
-    private int page= 1;//接后台，每次加载列表的页数
     private SwipeRefreshLayout mSwipeRefreshLayout;
+    private ViewStub mViewStub;
+    private View errView;
+
+    private int page= 1;//接后台，每次加载列表的页数
     private LoadDataScrollController mLoadDataScrollController;
 
 
@@ -43,6 +50,7 @@ public class OrderPager extends BasePager implements IPersonView,LoadDataScrollC
         View view = View.inflate(context,R.layout.activity_my_order_recyclerview,null);
         mRecyclerView = view.findViewById(R.id.recyclerView);
         mSwipeRefreshLayout= view.findViewById(R.id.refreshLayout);
+        mViewStub = view.findViewById(R.id.view_stub_err);
         LinearLayoutManager layoutManager = new LinearLayoutManager(context) {
             /**
              * 解决子布局item不能铺满父布局
@@ -87,7 +95,28 @@ public class OrderPager extends BasePager implements IPersonView,LoadDataScrollC
 
     @Override
     public void hideLoading(boolean isSuccess) {
+        if (!isSuccess) {
+            mSwipeRefreshLayout.setVisibility(View.GONE);
 
+            if (errView==null){//显示错误界面
+                errView = mViewStub.inflate();
+                Button reloadBtn = errView.findViewById(R.id.btn_err);
+                reloadBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //toDo:reload data.
+
+                    }
+                });
+            }
+        }else {
+            mSwipeRefreshLayout.setVisibility(View.VISIBLE);
+            if (errView!=null)
+                errView.setVisibility(View.GONE);
+        }
+
+        mLoadDataScrollController.setLoadDataStatus(false);
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 
     /**

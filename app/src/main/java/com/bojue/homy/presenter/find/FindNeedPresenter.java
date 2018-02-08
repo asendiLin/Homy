@@ -31,18 +31,15 @@ public class FindNeedPresenter extends AbstractFindNeedPresenter {
 
                     @Override
                     public void onFail(Throwable throwable) {
-
+                        getView().hideLoading(false);
                     }
 
                     @Override
-                    public void onRequestEnd(boolean isSuccess) {
-                        super.onRequestEnd(isSuccess);
+                    public void onRequestStart() {
+                        super.onRequestStart();
+                        getView().showLoading();
                     }
 
-                    @Override
-                    public void onResultMsg(String msg) {
-                        super.onResultMsg(msg);
-                    }
                 });
     }
 }

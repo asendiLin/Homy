@@ -25,7 +25,7 @@ public interface FindNeedService {
      * @param page:页码
      * @return
      */
-    @GET("")
+    @GET("aaa")
     Observable<BaseEntity<List<NeedItem>>>loadNeed(@Query("") String type, @Query("") String uId,
                                                    @Query("")int page);
 

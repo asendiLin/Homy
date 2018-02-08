@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -44,6 +46,9 @@ public class CommunityFragment extends BaseFragment implements ICommunityView,Lo
     private SwipeRefreshLayout srl_community;
     private LoadDataScrollController mLoadDataScrollController;
     private ImageButton ib_publish_feeling;
+    private ViewStub mViewStub;
+    private View errView;
+
     private List<CommunityBean> communityList;
     private int page=1;
     private AbstractCommunityPresenter mPresenter;
@@ -66,6 +71,7 @@ public class CommunityFragment extends BaseFragment implements ICommunityView,Lo
         ib_publish_feeling.setVisibility(View.VISIBLE);
         rv_community = view.findViewById(R.id.rv_community);
         srl_community=view.findViewById(R.id.refreshLayout);
+        mViewStub = view.findViewById(R.id.view_stub_err);
 //        zan_sum_community = view.findViewById(R.id.zan_sum_community);
 
         //设置下拉刷新控件
@@ -125,7 +131,28 @@ public class CommunityFragment extends BaseFragment implements ICommunityView,Lo
 
     @Override
     public void hideLoading(boolean isSeccuss) {
+        if (!isSeccuss) {
+            srl_community.setVisibility(View.GONE);
 
+            if (errView==null){//显示错误界面
+                errView = mViewStub.inflate();
+                Button reloadBtn = errView.findViewById(R.id.btn_err);
+                reloadBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //toDo:reload data.
+
+                    }
+                });
+            }
+        }else {//显示加载完成后的界面
+            srl_community.setVisibility(View.VISIBLE);
+            if (errView!=null)
+                errView.setVisibility(View.GONE);
+        }
+
+        mLoadDataScrollController.setLoadDataStatus(false);
+        srl_community.setRefreshing(false);
     }
 
     @Override

@@ -4,6 +4,8 @@ import com.bojue.homy.global.GlobalContent;
 import com.bojue.homy.utils.https.interceptor.AddCookiesInterceptor;
 import com.bojue.homy.utils.https.interceptor.SaveCookieInterceptor;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -23,9 +25,13 @@ public class RetrofitFactory {
         if (mRetorfit==null){
             synchronized (RetrofitFactory.class){
                 if (mRetorfit==null){
-                    OkHttpClient okHttpClient=new OkHttpClient();
-                    okHttpClient.interceptors().add(new AddCookiesInterceptor());
-                    okHttpClient.interceptors().add(new SaveCookieInterceptor());
+                    OkHttpClient okHttpClient=new OkHttpClient.Builder()
+                            .addInterceptor(new AddCookiesInterceptor())
+                            .addInterceptor(new SaveCookieInterceptor())
+                            .connectTimeout(5, TimeUnit.SECONDS)
+                            .readTimeout(5,TimeUnit.SECONDS)
+                            .writeTimeout(5,TimeUnit.SECONDS)
+                            .build();
 
                     mRetorfit=new Retrofit.Builder()
                             .client(okHttpClient)

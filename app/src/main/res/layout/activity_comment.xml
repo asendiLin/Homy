@@ -11,6 +11,16 @@
         android:layout_height="wrap_content">
     <include layout="@layout/title_bar_layout"/>
     </LinearLayout>
+
+    <ViewStub
+        android:id="@+id/view_stub_err"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout="@layout/err_layout"
+        android:layout_below="@id/ll_comment"
+        />
+
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:layout_above="@+id/underline_comment"
         android:layout_below="@id/ll_comment"
