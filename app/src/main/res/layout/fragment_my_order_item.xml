@@ -12,71 +12,71 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="@dimen/space_s"
-            android:paddingBottom="@dimen/space_xs"
             >
-            <LinearLayout
-                android:orientation="horizontal"
+
+            <RelativeLayout
                 android:layout_marginBottom="@dimen/space_xs"
+                android:layout_marginTop="@dimen/space_s"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_user_icon"
                     android:layout_marginLeft="@dimen/space_m"
                     android:src="@mipmap/ic_temp"
                     android:layout_width="@dimen/space_xxl"
                     android:layout_height="@dimen/space_xxl" />
-                <LinearLayout
-                    android:layout_marginLeft="@dimen/space_m"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                   style="@style/fragment_my_demand">
-                    <TextView
-                        android:text="@string/str_demand_type"
-                       style="@style/fragment_my_demand_text_view" />
-                    <TextView
-                        android:id="@+id/text_type"
-                        android:text="@string/app_name"
-                        style="@style/fragment_my_demand_text_view" />
 
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginRight="@dimen/space_l"
-                    style="@style/fragment_my_demand">
-                    <ImageView
-                        android:id="@+id/un_finish"
-                        android:src="@mipmap/ic_launcher_arrow_right"
-                        android:layout_marginRight="@dimen/space_xxs"
-                       style="@style/fragment_my_demand_image" />
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/txt_nickname"
+                    android:text="@string/str_nick_name"
+                    style="@style/fragment_my_demand_text_view"
+                    android:layout_toRightOf="@id/img_user_icon"
+                    />
+                <TextView
+                    android:id="@+id/text_name"
+                    android:layout_toRightOf="@id/txt_nickname"
+                    android:text="@string/app_name"
+                    style="@style/fragment_my_demand_text_view" />
 
-            </LinearLayout>
+                <ImageButton
+                    android:id="@+id/img_btn_call_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:src="@mipmap/ic_phone"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/space_m"
+                    />
+
+                <ImageButton
+                    android:id="@+id/img_btn_chat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:src="@mipmap/ic_chat"
+                    android:layout_toLeftOf="@id/img_btn_call_phone"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/space_m"
+                    />
+
+            </RelativeLayout>
 
             <LinearLayout
-                android:layout_marginTop="@dimen/space_xxs"
                 android:gravity="center"
                 style="@style/fragment_my_demand">
                 <ImageView
                     style="@style/fragment_my_demand_image" />
                 <TextView
-                    android:text="@string/str_start_time"
-                    style="@style/fragment_my_demand_text_view" />
+                    android:text="@string/str_demand_type"
+                    style="@style/fragment_my_demand_text_view"
+                    />
                 <TextView
-                    android:id="@+id/text_start_time"
+                    android:id="@+id/text_type"
                     android:text="@string/app_name"
                     style="@style/fragment_my_demand_text_view" />
             </LinearLayout>
-            <LinearLayout
-                style="@style/fragment_my_demand">
-                <ImageView
-                    style="@style/fragment_my_demand_image" />
-                <TextView
-                    android:text="@string/str_demand_end_time"
-                    style="@style/fragment_my_demand_text_view" />
-                <TextView
-                    android:id="@+id/text_end_time"
-                    android:text="@string/app_name"
-                    style="@style/fragment_my_demand_text_view" />
-            </LinearLayout>
+
             <LinearLayout
                 style="@style/fragment_my_demand">
                 <ImageView
@@ -89,6 +89,35 @@
                     android:text="@string/app_name"
                     style="@style/fragment_my_demand_text_view" />
             </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                style="@style/fragment_my_demand">
+                <ImageView
+                    style="@style/fragment_my_demand_image" />
+                <TextView
+                    android:text="@string/str_start_time"
+                    style="@style/fragment_my_demand_text_view" />
+                <TextView
+                    android:id="@+id/text_start_time"
+                    android:text="@string/app_name"
+                    style="@style/fragment_my_demand_text_view" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="@dimen/space_s"
+                style="@style/fragment_my_demand">
+                <ImageView
+                    style="@style/fragment_my_demand_image" />
+                <TextView
+                    android:text="@string/str_demand_end_time"
+                    style="@style/fragment_my_demand_text_view" />
+                <TextView
+                    android:id="@+id/text_end_time"
+                    android:text="@string/app_name"
+                    style="@style/fragment_my_demand_text_view" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </android.support.v7.widget.CardView>

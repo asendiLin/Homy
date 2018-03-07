@@ -55,6 +55,21 @@
                 android:layout_height="@dimen/space_l"
                 android:visibility="gone"
                 />
+
+            <Button
+                android:id="@+id/ib_filter"
+                android:text="@string/str_filter"
+                android:background="@null"
+                android:textSize="@dimen/txt_m"
+                android:textAllCaps="false"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/space_m"
+                android:layout_width="@dimen/space_xxl"
+                android:layout_height="@dimen/space_l"
+                android:visibility="gone"
+                />
+
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>

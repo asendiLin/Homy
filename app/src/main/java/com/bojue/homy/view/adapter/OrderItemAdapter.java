@@ -2,6 +2,7 @@ package com.bojue.homy.view.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -49,7 +50,9 @@ public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.View
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = View.inflate(getContext, R.layout.fragment_my_order_item,null);
+        LayoutInflater inflater=LayoutInflater.from(getContext);
+
+        View view = inflater.inflate(R.layout.fragment_my_order_item,parent,false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }

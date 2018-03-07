@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/tv_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="@string/str_yes"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="15dp"
+                android:text="@string/str_no"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <com.bojue.homy.widget.SelectNumberPicker
+                android:id="@+id/snp_date"
+                style="@style/select_time_piker"
+                ></com.bojue.homy.widget.SelectNumberPicker>
+
+            <com.bojue.homy.widget.SelectNumberPicker
+                android:id="@+id/snp_hour"
+                style="@style/select_time_piker"
+                ></com.bojue.homy.widget.SelectNumberPicker>
+
+            <com.bojue.homy.widget.SelectNumberPicker
+                android:id="@+id/snp_minute"
+                style="@style/select_time_piker"
+                ></com.bojue.homy.widget.SelectNumberPicker>
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

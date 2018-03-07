@@ -51,19 +51,9 @@ public class OrderPager extends BasePager implements IPersonView,LoadDataScrollC
         mRecyclerView = view.findViewById(R.id.recyclerView);
         mSwipeRefreshLayout= view.findViewById(R.id.refreshLayout);
         mViewStub = view.findViewById(R.id.view_stub_err);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(context) {
-            /**
-             * 解决子布局item不能铺满父布局
-             * @return
-             */
-            @Override
-            public RecyclerView.LayoutParams generateDefaultLayoutParams() {
-                return new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT);//width,height
-            }
-        };
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);//设置父布局的排列方式
-        mRecyclerView.setLayoutManager(layoutManager);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(context,
+                LinearLayoutManager.VERTICAL,false);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
         //设置下拉刷新和加载更多
         mLoadDataScrollController=new LoadDataScrollController(this);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorBackgroundLine);

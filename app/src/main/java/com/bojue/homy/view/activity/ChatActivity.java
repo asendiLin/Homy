@@ -19,5 +19,8 @@ public class ChatActivity extends BaseActivity {
      * @param view
      */
     public void onSend(View view) {
+        //toDo:发送消息
+
+        //toDo:将消息显示到聊天窗口
     }
 }

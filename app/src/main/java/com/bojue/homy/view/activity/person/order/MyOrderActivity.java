@@ -58,7 +58,6 @@ public class MyOrderActivity extends BaseActivity implements IPersonView,View.On
         ib_back_community = findViewById(R.id.ib_back_community);
 
 
-
     }
 
     public void initData(){

@@ -1,5 +1,6 @@
 package com.bojue.homy.view.fragment.publish;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
@@ -19,6 +20,7 @@ import com.bojue.homy.R;
 import com.bojue.homy.base.BaseFragment;
 import com.bojue.homy.presenter.publish.AbstractPublishPresenter;
 import com.bojue.homy.presenter.publish.PublishTextPre;
+import com.bojue.homy.utils.https.date.SelectTimePickerDialogUtil;
 
 import static com.bojue.homy.utils.https.date.DateUtil.getSystemDate;
 
@@ -72,7 +74,7 @@ public class PublishFragment extends BaseFragment implements IPublishView,View.O
         //设置spinner的监听
         spinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
         //设置TextView的监听
-        tv_data.setOnClickListener(new MyOnContextClickListener() );
+        tv_data.setOnClickListener(this);
 
         bt_publish.setOnClickListener(this);
 
@@ -104,6 +106,22 @@ public class PublishFragment extends BaseFragment implements IPublishView,View.O
                 }else {
                     mPresenter.submitPublishContent(uId, price, phoneNum, needType, startTime, endTime, needContent, latitude, longitude);
                 }
+                break;
+            case R.id.tv_date:
+                SelectTimePickerDialogUtil timePicker= new SelectTimePickerDialogUtil
+                        .Builder(getActivity())
+                        .setSelecteTimeView(tv_data)
+                        .setOnSelectedTimeListener(new SelectTimePickerDialogUtil.OnSelectedTimeListener() {
+                            @Override
+                            public void onSelectedTime(String selectedTime, Dialog dialog,
+                                                       String showSelectedTimeStr) {
+                                tv_data.setText(showSelectedTimeStr);
+                                dialog.dismiss();
+                            }
+                        })
+                        .build();
+
+                timePicker.showSelectDialog();
                 break;
         }
     }
@@ -166,16 +184,5 @@ public class PublishFragment extends BaseFragment implements IPublishView,View.O
 
         }
     }
-    /**
-     * Created by Administrator on 2018/1/6.
-     * 重写TextView的监听器
-     */
-    private class MyOnContextClickListener implements View.OnClickListener {
 
-        @Override
-        public void onClick(View view) {
-            //结束时间的点击事件内容
-            Toast.makeText(getContext(),"1.2",Toast.LENGTH_SHORT).show();
-        }
-    }
 }

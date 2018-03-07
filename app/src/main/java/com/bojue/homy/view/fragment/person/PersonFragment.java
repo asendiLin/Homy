@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bojue.homy.R;
@@ -63,10 +62,6 @@ public class PersonFragment extends BaseFragment implements IPersonView,View.OnC
         orderLinearLayout.setOnClickListener(this);
         demandLinearLayout.setOnClickListener(this);
         aboutLinearLayout.setOnClickListener(this);
-
-//        next_order.setOnClickListener(this);
-//        next_demand.setOnClickListener(this);
-//        next_about_us.setOnClickListener(this);
         write_person_msg.setOnClickListener(this);
         img_user_pic.setOnClickListener(this);
     }

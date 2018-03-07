@@ -92,7 +92,6 @@
     </style>
     <!-- 个人中心的头像区文字-->
     <style name="person_header_text">
-        <item name="android:layout_marginLeft">@dimen/space_m</item>
         <item name="android:layout_marginTop">@dimen/space_s</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -103,18 +102,16 @@
     <style name="person_header_btn">
         <item name="android:textSize">@dimen/txt_s_plus</item>
         <item name="android:textColor">@color/colorBlack</item>
-        <item name="android:paddingLeft">@dimen/space_xxl</item>
-        <item name="android:paddingRight">@dimen/space_xxl</item>
+        <item name="android:paddingLeft">@dimen/space_s</item>
+        <item name="android:paddingRight">@dimen/space_s</item>
         <item name="android:layout_marginTop">@dimen/space_l</item>
-        <item name="android:layout_marginLeft">@dimen/space_l</item>
-        <item name="android:layout_marginRight">@dimen/space_l</item>
         <item name="android:background">@drawable/edit_text_bg</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/space_l</item>
     </style>
     <!-- 个人中心的分割线-->
     <style name="person_view">
-        <item name="android:layout_height">@dimen/space_xs</item>
+        <item name="android:layout_height">@dimen/space_xxs</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:background">@color/colorLightGrey</item>
     </style>
@@ -193,10 +190,12 @@
     </style>
     <!--我的需求界面的TextView-->
     <style name="fragment_my_demand_text_view">
+        <item name="android:layout_centerVertical">true</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:textSize">@dimen/txt_m</item>
+        <item name="android:layout_marginLeft">@dimen/space_s</item>
     </style>
     <!--我的需求界面的ImageView-->
     <style name="fragment_my_demand_image">
@@ -205,5 +204,30 @@
         <item name="android:src">@mipmap/ic_launcher_point</item>
         <item name="android:layout_marginLeft">@dimen/space_ss</item>
         <item name="android:layout_marginTop">@dimen/space_xxs</item>
+    </style>
+
+    <!--底部弹框的样式-->
+    <style name="dialog_bottom_filter">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/dialog_bottom_anim_in_out</item>
+    </style>
+
+    <!--进出动画-->
+    <style name="dialog_bottom_anim_in_out" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/dialog_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_bottom_out</item>
+    </style>
+
+    <!--时间选择弹窗SelectNumberPicker-->
+    <style name="select_time_piker">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
     </style>
 </resources>

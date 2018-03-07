@@ -7,8 +7,8 @@ package com.bojue.homy.entity;
 
 public class ChatMessageBean {
     private String content;//内容
-    private String sender;//发送者
-    private String receiver;//接收者
+    private String senderIcon;//发送者
+    private String receiverIcon;//接收者
     private int direction;//接收/发送
 
     public String getContent() {
@@ -19,20 +19,20 @@ public class ChatMessageBean {
         this.content = content;
     }
 
-    public String getSender() {
-        return sender;
+    public String getSenderIcon() {
+        return senderIcon;
     }
 
-    public void setSender(String sender) {
-        this.sender = sender;
+    public void setSenderIcon(String senderIcon) {
+        this.senderIcon = senderIcon;
     }
 
-    public String getReciever() {
-        return receiver;
+    public String getRecieverIcon() {
+        return receiverIcon;
     }
 
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
+    public void setReceiverIcon(String receiverIcon) {
+        this.receiverIcon = receiverIcon;
     }
 
     public int getDirection() {

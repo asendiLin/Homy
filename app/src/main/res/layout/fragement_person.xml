@@ -15,12 +15,11 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_user_pic"
                 android:layout_marginLeft="@dimen/space_xl"
                 android:layout_marginTop="@dimen/space_l"
                 android:layout_centerHorizontal="true"
-                android:scaleType="fitXY"
                 android:src="@mipmap/ic_temp"
                 android:layout_width="@dimen/space_xxxl"
                 android:layout_height="@dimen/space_xxxl" />
@@ -40,7 +39,7 @@
                     android:text="@string/str_nick_name"
                     style="@style/person_header_text"/>
                 <TextView
-                    android:layout_marginLeft="@dimen/space_xl"
+                    android:layout_marginLeft="@dimen/space_l"
                     android:layout_marginTop="@dimen/space_l"
                     android:text="@string/str_about_us"
                     android:textSize="@dimen/txt_m"
@@ -54,7 +53,7 @@
                     android:text="@string/str_gender"
                     style="@style/person_header_text"/>
                 <TextView
-                    android:layout_marginLeft="@dimen/space_xl"
+                    android:layout_marginLeft="@dimen/space_l"
                     android:text="@string/str_about_us"
                     android:textSize="@dimen/txt_m"
                     style="@style/person_header_text" />
@@ -67,7 +66,7 @@
                     android:text="@string/str_reputation"
                     style="@style/person_header_text"/>
                 <TextView
-                    android:layout_marginLeft="@dimen/space_xl"
+                    android:layout_marginLeft="@dimen/space_l"
                     android:text="@string/str_about_us"
                     android:textSize="@dimen/txt_m"
                     style="@style/person_header_text" />
@@ -85,7 +84,7 @@
     </LinearLayout>
     <View
        style="@style/person_view"
-        android:layout_height="@dimen/space_l"/>
+        android:layout_height="@dimen/space_m"/>
     <LinearLayout
         android:orientation="vertical"
         android:layout_weight="30"
