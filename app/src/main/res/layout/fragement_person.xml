@@ -39,7 +39,7 @@
                     android:text="@string/str_nick_name"
                     style="@style/person_header_text"/>
                 <TextView
-                    android:layout_marginLeft="@dimen/space_l"
+                    android:layout_marginLeft="@dimen/space_xl"
                     android:layout_marginTop="@dimen/space_l"
                     android:text="@string/str_about_us"
                     android:textSize="@dimen/txt_m"
@@ -53,7 +53,7 @@
                     android:text="@string/str_gender"
                     style="@style/person_header_text"/>
                 <TextView
-                    android:layout_marginLeft="@dimen/space_l"
+                    android:layout_marginLeft="@dimen/space_xl"
                     android:text="@string/str_about_us"
                     android:textSize="@dimen/txt_m"
                     style="@style/person_header_text" />
@@ -66,7 +66,7 @@
                     android:text="@string/str_reputation"
                     style="@style/person_header_text"/>
                 <TextView
-                    android:layout_marginLeft="@dimen/space_l"
+                    android:layout_marginLeft="@dimen/space_xl"
                     android:text="@string/str_about_us"
                     android:textSize="@dimen/txt_m"
                     style="@style/person_header_text" />

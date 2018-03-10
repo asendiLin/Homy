@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.bojue.homy.R;
 import com.bojue.homy.base.BaseActivity;
 import com.bojue.homy.entity.PersonBean;
+import com.bojue.homy.utils.https.activity.ActivityController;
 import com.bojue.homy.view.activity.land_register.LoginActivity;
 import com.bojue.homy.view.activity.land_register.UserManage;
 import com.bojue.homy.view.activity.person.demand.MyDemandView;
@@ -65,9 +66,9 @@ public class MessageActivity extends BaseActivity implements IPersonView,View.On
                 break;
             case R.id.drop_out:
 
+
+                ActivityController.clearActivty();
                 Intent intent = new Intent(this, LoginActivity.class);
-                //清除TaskStack，再创建一个新的,实现注销之后，返回键不能返回
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 String userPhone = "Homy";
                 String passWord = "Homy";
                 UserManage.getInstance().saveUserInfo(this,userPhone,passWord);

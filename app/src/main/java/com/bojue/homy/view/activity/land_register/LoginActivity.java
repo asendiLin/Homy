@@ -13,10 +13,21 @@ import android.widget.Toast;
 
 import com.bojue.homy.R;
 import com.bojue.homy.base.BaseActivity;
+import com.bojue.homy.presenter.login.AbstractLoginPresenter;
+import com.bojue.homy.presenter.login.LoginPresenter;
+import com.bojue.homy.view.activity.MainActivity;
 
 import com.bojue.homy.utils.https.click.ButtonEvent;
 import com.bojue.homy.view.IView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import io.reactivex.internal.schedulers.ExecutorScheduler;
+
+import static com.bojue.homy.utils.https.date.DateUtil.getSystemDate;
 
 /**
  * Created by Xie on 2018/1/15.
@@ -26,6 +37,8 @@ import com.bojue.homy.view.IView;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener,IView{
     private final String TAG="SEN_DI";
+
+
     private Button login;//登陆按钮
     private ImageButton login_wechat;
     private ImageButton login_qq;

@@ -14,7 +14,7 @@ public class DateUtil {
      */
     public static String getSystemDate(){
         String mDate;
-        SimpleDateFormat mDateFormat = new SimpleDateFormat("MM月dd日");
+        SimpleDateFormat mDateFormat = new SimpleDateFormat("今天 HH : mm");
         mDate = mDateFormat.format(System.currentTimeMillis());
         return mDate;
     }

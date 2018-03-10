@@ -127,23 +127,42 @@ private final static String TAG="HOME_FRAGMENT";
         mMapView.onDestroy();
         mPresenter.detachView();
     }
-
+    BaiduMap.OnMarkerClickListener onMarkerClickListener =new BaiduMap.OnMarkerClickListener() {
+        @Override
+        public boolean onMarkerClick(Marker marker) {
+            //获取点击的图标信息
+            //显示详情
+            Bundle bundle=marker.getExtraInfo();
+            MarkerBean markerBean= (MarkerBean) bundle.getSerializable("markerBean");
+            Log.i(TAG, "onMarkerClick: Latitude:"+markerBean.getLatitude());
+            Intent intent=new Intent(getActivity(), NeedDetailActivity.class);
+            //toDo:传送需求的id
+            startActivity(intent);
+            mBaiduMap.removeMarkerClickListener(onMarkerClickListener);
+            mBaiduMap.clear();
+            return false;
+        }
+    };
     private void initListener() {
         //覆盖物的点击监听
-        mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(Marker marker) {
-                //获取点击的图标信息
-                //显示详情
-                Bundle bundle=marker.getExtraInfo();
-                MarkerBean markerBean= (MarkerBean) bundle.getSerializable("markerBean");
-                Log.i(TAG, "onMarkerClick: Latitude:"+markerBean.getLatitude());
-                Intent intent=new Intent(getActivity(), NeedDetailActivity.class);
-                //toDo:传送需求的id
-                startActivity(intent);
-                return false;
-            }
-        });
+//        mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
+//            @Override
+//            public boolean onMarkerClick(Marker marker) {
+//                //获取点击的图标信息
+//                //显示详情
+//                Bundle bundle=marker.getExtraInfo();
+//                MarkerBean markerBean= (MarkerBean) bundle.getSerializable("markerBean");
+//                Log.i(TAG, "onMarkerClick: Latitude:"+markerBean.getLatitude());
+//                Intent intent=new Intent(getActivity(), NeedDetailActivity.class);
+//                //toDo:传送需求的id
+//                startActivity(intent);
+//                return false;
+//            }
+//        });
+
+
+        mBaiduMap.setOnMarkerClickListener(onMarkerClickListener);
+
 
         //点击地图监听
         mBaiduMap.setOnMapClickListener(new BaiduMap.OnMapClickListener() {

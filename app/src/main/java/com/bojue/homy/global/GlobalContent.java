@@ -10,7 +10,7 @@ public class GlobalContent {
     /**
      * 全局url
      */
-    public final static String BASEURL="http:test/";
+    public final static String BASEURL="http://192.168.1.102:8080/test/";
 
     /**
      * 用户ID

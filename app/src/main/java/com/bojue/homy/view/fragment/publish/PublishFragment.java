@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -21,6 +23,7 @@ import com.bojue.homy.base.BaseFragment;
 import com.bojue.homy.presenter.publish.AbstractPublishPresenter;
 import com.bojue.homy.presenter.publish.PublishTextPre;
 import com.bojue.homy.utils.https.date.SelectTimePickerDialogUtil;
+import com.bojue.homy.utils.https.load.LoadingDialog;
 
 import static com.bojue.homy.utils.https.date.DateUtil.getSystemDate;
 
@@ -87,6 +90,8 @@ public class PublishFragment extends BaseFragment implements IPublishView,View.O
 
         //获取当前时间
         startTime = getSystemDate();
+        tv_data.setText(startTime);
+        
 
     }
 
