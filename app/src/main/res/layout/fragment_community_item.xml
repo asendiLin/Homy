@@ -40,6 +40,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
+        <TextView
+            android:id="@+id/content_community"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/txt_s_plus"
+            android:layout_marginBottom="@dimen/space_s"
+            android:layout_marginLeft="@dimen/space_s"
+            android:text="@string/str_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
         <ImageView
             android:id="@+id/iv_community"
             android:layout_marginLeft="@dimen/space_xxs"
@@ -52,10 +61,12 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/space_xl">
             <TextView
+
                 android:clickable="true"
-                android:layout_marginLeft="@dimen/space_xs"
+                android:layout_marginRight="@dimen/space_xs"
                 android:text="@string/str_sum"
                 android:drawableLeft="@drawable/ic_zan"
+                android:layout_toLeftOf="@+id/comment_community"
                 android:padding="@dimen/space_xs"
                 android:gravity="center"
                 android:layout_centerVertical="true"
@@ -64,24 +75,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <ImageButton
+                android:layout_alignParentRight="true"
                 android:id="@+id/comment_community"
                 android:background="@android:color/transparent"
                 android:src="@mipmap/ic_comments"
-                android:layout_marginLeft="@dimen/space_m"
-                android:layout_toRightOf="@id/zan_sum_community"
+                android:layout_marginRight="@dimen/space_m"
                 android:layout_centerVertical="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </RelativeLayout>
-        <TextView
-            android:id="@+id/content_community"
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/txt_s_plus"
-            android:layout_marginBottom="@dimen/space_s"
-            android:layout_marginLeft="@dimen/space_s"
-            android:text="@string/str_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

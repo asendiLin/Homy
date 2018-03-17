@@ -39,6 +39,7 @@ public class RetrofitFactory {
                             .addConverterFactory(GsonConverterFactory.create())
                             .baseUrl(GlobalContent.BASEURL)
                             .build();
+
                 }
             }
         }

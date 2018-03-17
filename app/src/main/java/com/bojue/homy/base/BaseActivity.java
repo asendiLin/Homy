@@ -22,7 +22,7 @@ public abstract class BaseActivity extends FragmentActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        ActivityController.addAcyivty(this);
+        ActivityController.addActivty(this);
     }
 
     @Override

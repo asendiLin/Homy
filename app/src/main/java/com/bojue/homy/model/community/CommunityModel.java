@@ -26,32 +26,32 @@ public class CommunityModel extends BaseModel implements ICommunityModel{
 
     @Override
     public Observable<BaseEntity<List<CommunityBean>>> loadCommunity(int page) {
-        return mService.loadCommunity(page);
+        return mService.loadCommunity(page).compose(this.<BaseEntity<List<CommunityBean>>>setThread());
     }
     //展示社区评论页面方法
     @Override
     public Observable<BaseEntity<List<CommentBean>>> loadComment(int page, int cId) {
-        return mService.loadComment(page, cId);
+        return mService.loadComment(page, cId).compose(this.<BaseEntity<List<CommentBean>>>setThread());
     }
 
 
     //提交评论
     @Override
     public Observable<BaseEntity<CommentBean>> submitComment(int uId, int cId, String commentContent,boolean isReply,String repliedName) {
-        return mService.submitComment(uId,cId,commentContent,isReply,repliedName);
+        return mService.submitComment(uId,cId,commentContent,isReply,repliedName).compose(this.<BaseEntity<CommentBean>>setThread());
     }
 
 
     //提交心情
     @Override
     public Observable<BaseEntity<CommunityBean>> submitCommunityFeeling(int uId, String imagUrl, String feelingContent,String mDate) {
-        return mService.submitCommunityFeeling(uId, imagUrl, feelingContent,mDate);
+        return mService.submitCommunityFeeling(uId, imagUrl, feelingContent,mDate).compose(this.<BaseEntity<CommunityBean>>setThread());
     }
 
 
     //提交用户点赞的方法
     @Override
     public Observable<BaseEntity<List<CommunityBean>>> loadThumbUp(int cId,int uId) {
-        return mService.loadThumbUp(cId,uId);
+        return mService.loadThumbUp(cId,uId).compose(this.<BaseEntity<List<CommunityBean>>>setThread());
     }
 }

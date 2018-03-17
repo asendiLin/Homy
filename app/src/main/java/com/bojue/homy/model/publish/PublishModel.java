@@ -21,6 +21,6 @@ public class PublishModel extends BaseModel implements IPublishModel {
 //提交发布需求数据
     @Override
     public Observable<BaseEntity<List<PublishBean>>> submitPublishContent(int uId, String price, String phoneNum, String needType, String startTime, String endTime, String needContent, String latitude, String longitude) {
-        return mService.submitPublishContent(uId, price, phoneNum, needType, startTime, endTime, needContent, latitude, longitude);
+        return mService.submitPublishContent(uId, price, phoneNum, needType, startTime, endTime, needContent, latitude, longitude).compose(this.<BaseEntity<List<PublishBean>>>setThread());
     }
 }

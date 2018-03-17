@@ -6,4 +6,5 @@ package com.bojue.homy.model;
  */
 
 public interface IModel {
+
 }

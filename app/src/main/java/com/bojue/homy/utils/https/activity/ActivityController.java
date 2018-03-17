@@ -14,7 +14,7 @@ public class ActivityController {
 
     private static List<BaseActivity> mBaseActivities=new ArrayList<>();
 
-    public static void addAcyivty(BaseActivity activity){
+    public static void addActivty(BaseActivity activity){
         mBaseActivities.add(activity);
     }
 
