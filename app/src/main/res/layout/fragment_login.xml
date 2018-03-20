@@ -36,6 +36,7 @@
                     android:id="@+id/login_phone"
                     android:layout_marginLeft="@dimen/space_m"
                     android:hint="@string/str_hint_phone"
+                    android:inputType="phone"
                     style="@style/fragment_register_edit_text" />
             </LinearLayout>
         </RelativeLayout>
@@ -65,49 +66,19 @@
             style="@style/global_bt_style"
             android:text="@string/str_hint_login"
             />
-        <LinearLayout
-            android:orientation="horizontal"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:gravity="center_vertical"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="@string/str_login_wechat"
-                    style="@style/fragment_login_text" />
-                <ImageButton
-                    android:id="@+id/login_wechat"
-                    android:src="@mipmap/ic_launcher_wechat"
-                    style="@style/fragment_login_btn" />
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:text="@string/str_login_qq"
-                    style="@style/fragment_login_text" />
-                <ImageButton
-                    android:id="@+id/login_qq"
-                    android:src="@mipmap/ic_launcher_qq"
-                    style="@style/fragment_login_btn" />
+            android:layout_height="match_parent">
                 <TextView
                     android:id="@+id/register"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:text="@string/str_login_register"
-                    android:layout_marginTop="@dimen/space_l"
+                    android:layout_marginRight="@dimen/space_l"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     />
-
-            </LinearLayout>
-
-        </LinearLayout>
+        </RelativeLayout>
 
 
 

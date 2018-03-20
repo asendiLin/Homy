@@ -4,7 +4,10 @@ import com.bojue.homy.base.BaseEntity;
 import com.bojue.homy.entity.WriteMsgBean;
 import java.util.List;
 import io.reactivex.Observable;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 import com.bojue.homy.base.BaseEntity;
 import java.util.List;
@@ -17,8 +20,8 @@ import retrofit2.http.Query;
  */
 
 public interface WriteMsgService {
-    @GET("")
-    Observable<BaseEntity<List<WriteMsgBean>>> loadMessage(@Query("name") String name,@Query("gender")
-            String gender,@Query("number") int number);
 
+    @FormUrlEncoded
+    @POST("hemy/user/update")
+    Observable<BaseEntity<List<WriteMsgBean>>> submitMessageContent(@Field("nickname") String name,@Field("sex") int gender,@Field("userId") String Id);
 }

@@ -56,6 +56,7 @@
     <string name="str_write_message">编辑个人信息</string>
     <string name="str_my_demand">我的需求</string>
     <string name="str_my_order">我的订单</string>
+    <string name="str_my_phone">我的手机</string>
     <string name="str_about_us">关于我们</string>
     <!--注册界面-->
     <string name="str_text">让帮助成为你大学生活的一种娱乐</string>>
@@ -69,6 +70,9 @@
     <string name="str_hint_register">注册</string>
     <string name="str_hint_login">登陆</string>
     <string name="str_drop_out">退出登录</string>
+    <string name="str_gender_male">男</string>
+    <string name="str_gender_female">女</string>
+    <string name="str_go_login">已有账号，去登陆</string>
     <!--登陆界面-->
     <string name="str_login_wechat">使用微信登陆:</string>
     <string name="str_login_qq">使用QQ登陆:</string>
@@ -81,6 +85,9 @@
     <string name="str_land_wechat">使用微信登陆:</string>
     <string name="str_land_qq">使用QQ登陆:</string>
     <string name="str_land_register">没有Hemy账号？点击注册</string>
+    <!--我的手机界面-->
+    <string name="str_phone_bindings_number">已绑定的手机号码:</string>
+    <string name="str_phone_finish">完成</string>
 
     <!--聊天界面-->
     <string name="str_chat_et_hint">输入</string>

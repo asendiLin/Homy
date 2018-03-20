@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/title_bar_layout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_marginTop="@dimen/space_xxl"
+            android:layout_width="@dimen/space_xxxxxl"
+            android:layout_height="@dimen/space_xxxxxl"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher_wechat" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:includeFontPadding="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_xxxl"
+                android:text="@string/str_phone_bindings_number"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/txt_s_plus" />
+            <TextView
+                android:includeFontPadding="false"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:textSize="@dimen/txt_s_plus"
+                android:layout_height="wrap_content"
+                android:text="15768710136" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <EditText
+            android:id="@+id/et_number_phone"
+            android:inputType="phone"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/space_xxxl"
+            android:layout_marginRight="@dimen/space_xxxl"
+            android:layout_marginBottom="@dimen/space_xl"
+            android:hint="@string/str_hint_phone"
+            android:background="@drawable/edit_text_bg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_xl" />
+        <LinearLayout
+            android:layout_marginLeft="@dimen/space_xxxl"
+            android:layout_marginRight="@dimen/space_xxxl"
+            android:layout_marginBottom="@dimen/space_xl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_code_phone"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btn_get_code_phone"
+                android:text="@string/str_hint_get_verification_Code"
+                android:background="@drawable/edit_text_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_finish_phone"
+            android:text="@string/str_phone_finish"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/edit_text_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

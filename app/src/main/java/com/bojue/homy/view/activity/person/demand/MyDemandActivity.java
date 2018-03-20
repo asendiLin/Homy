@@ -120,6 +120,10 @@ public class MyDemandActivity extends BaseActivity  implements IPersonView,View.
 
     }
 
+
+
+
+
     /**
      * 下拉刷新
      */

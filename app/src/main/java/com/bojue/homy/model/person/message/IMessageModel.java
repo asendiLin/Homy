@@ -11,5 +11,7 @@ import io.reactivex.Observable;
  */
 
 public interface IMessageModel {
-    Observable<BaseEntity<List<WriteMsgBean>>> loadMessage(String name,String gender,int number);
+
+    Observable<BaseEntity<List<WriteMsgBean>>> submitMessageContent(String name,int gender,String Id);
+
 }

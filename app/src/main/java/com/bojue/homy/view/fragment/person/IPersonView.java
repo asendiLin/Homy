@@ -2,6 +2,7 @@ package com.bojue.homy.view.fragment.person;
 
 import com.bojue.homy.entity.NeedItem;
 import com.bojue.homy.entity.PersonBean;
+import com.bojue.homy.entity.RegisterBean;
 import com.bojue.homy.view.IView;
 
 import java.util.List;
@@ -16,6 +17,5 @@ public interface IPersonView extends IView {
     void initDemand(List<PersonBean> demandBeanList);
 
     void initOrder(List<PersonBean> orderBeanList);
-
 
 }

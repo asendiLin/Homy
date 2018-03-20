@@ -26,8 +26,8 @@ public class RetrofitFactory {
             synchronized (RetrofitFactory.class){
                 if (mRetorfit==null){
                     OkHttpClient okHttpClient=new OkHttpClient.Builder()
-                            .addInterceptor(new AddCookiesInterceptor())
-                            .addInterceptor(new SaveCookieInterceptor())
+//                            .addInterceptor(new AddCookiesInterceptor())
+//                            .addInterceptor(new SaveCookieInterceptor())
                             .connectTimeout(5, TimeUnit.SECONDS)
                             .readTimeout(5,TimeUnit.SECONDS)
                             .writeTimeout(5,TimeUnit.SECONDS)

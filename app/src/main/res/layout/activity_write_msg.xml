@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:background="@color/colorTextWhite"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -16,52 +17,51 @@
             android:src="@mipmap/ic_launcher_head"
             style="@style/fragment_register_image"/>
         <LinearLayout
+            android:background="@drawable/edit_text_bg"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <EditText
-                android:hint="@string/str_hint_name"
+                android:id="@+id/et_name_msg"
+                android:hint="@string/app_name"
+                android:inputType="textPhonetic"
                 style="@style/fragment_register_edit_text" />
         </LinearLayout>
-        <View
-            style="@style/person_view"
-            android:layout_height="@dimen/txt_xs"
-            android:layout_alignParentBottom="true" />
     </RelativeLayout>
-    <RelativeLayout
+
+    <LinearLayout
+        android:background="@color/colorTextWhite"
         android:layout_marginLeft="@dimen/space_xxl"
         android:layout_marginRight="@dimen/space_xxl"
-        android:background="@color/colorTextWhite"
         style="@style/fragment_register">
         <ImageView
-            android:src="@mipmap/ic_launcher_head"
+            android:src="@mipmap/ic_sex"
             style="@style/fragment_register_image"/>
         <LinearLayout
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <EditText
-                android:hint="@string/str_hint_gender"
-                style="@style/fragment_register_edit_text" />
+            <RadioGroup
+                android:id="@+id/rd_msg"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RadioButton
+                    android:id="@+id/rb_male"
+                    android:layout_marginRight="@dimen/space_xl"
+                    android:text="@string/str_gender_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_female"
+                    android:text="@string/str_gender_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
         </LinearLayout>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_marginLeft="@dimen/space_xxl"
-        android:layout_marginRight="@dimen/space_xxl"
-        android:background="@color/colorTextWhite"
-        style="@style/fragment_register">
-        <ImageView
-            android:src="@mipmap/ic_launcher_phone"
-            style="@style/fragment_register_image"/>
-        <LinearLayout
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <EditText
-                android:hint="@string/str_hint_phone"
-                style="@style/fragment_register_edit_text" />
-        </LinearLayout>
-    </RelativeLayout>
+    </LinearLayout>
+
     <Button
         android:id="@+id/drop_out"
         android:text="@string/str_drop_out"

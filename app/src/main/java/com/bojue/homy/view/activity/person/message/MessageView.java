@@ -8,4 +8,7 @@ import com.bojue.homy.view.IView;
  */
 
 public interface MessageView extends IView {
+
+    void submitMessageContent();
+
 }

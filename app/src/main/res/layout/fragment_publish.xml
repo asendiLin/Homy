@@ -24,7 +24,6 @@
                 android:layout_gravity="center"
                 android:layout_height="@dimen/space_xl"
                 android:dropDownVerticalOffset="@dimen/space_xl"
-
                 />
         </LinearLayout>
         <LinearLayout

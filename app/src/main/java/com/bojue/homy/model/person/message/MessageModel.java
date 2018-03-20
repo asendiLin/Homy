@@ -15,8 +15,10 @@ import io.reactivex.Observable;
 
 public class MessageModel extends BaseModel implements IMessageModel {
     WriteMsgService mService = this.createService(WriteMsgService.class);
+
     @Override
-    public Observable<BaseEntity<List<WriteMsgBean>>> loadMessage(String name, String gender, int number) {
-        return mService.loadMessage(name,gender,number);
+    public Observable<BaseEntity<List<WriteMsgBean>>> submitMessageContent(String name, int gender,String Id) {
+        return mService.submitMessageContent(name, gender,Id)
+                .compose(this.<BaseEntity<List<WriteMsgBean>>>setThread());
     }
 }

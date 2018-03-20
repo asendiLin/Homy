@@ -1,0 +1,34 @@
+package com.bojue.homy.view.activity.person.message;
+
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Intent;
+import android.content.IntentFilter;
+
+/**
+ * Created by Xie on 2018/3/19.
+ */
+
+public class BroadCastManger{
+
+    private static BroadCastManger mBroadCastManger = new BroadCastManger();
+
+    public static BroadCastManger getInstance() {
+        return mBroadCastManger;
+    }
+
+    //注册广播接收者
+    public void registerReceiver(Activity activity, BroadcastReceiver receiver, IntentFilter filter) {
+        activity.registerReceiver(receiver,filter);
+    }
+
+    //注销广播接收者
+    public void unregisterReceiver(Activity activity,BroadcastReceiver receiver) {
+        activity.unregisterReceiver(receiver);
+    }
+
+    //发送广播
+    public void sendBroadCast(Activity activity,Intent intent) {
+        activity.sendBroadcast(intent);
+    }
+}
