@@ -1,85 +1,64 @@
 package com.bojue.homy.view.adapter;
 
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.v4.view.PagerAdapter;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bojue.homy.R;
 import com.bojue.homy.entity.PersonBean;
+import com.bojue.homy.view.pager.DemanPager;
+import com.bojue.homy.view.pager.DemandPager;
 
 import java.util.List;
 
 /**
- * Created by Xie on 2018/1/8.
- * 我的需求之RecyclerView的适配器
+ * Created by Xie on 2018/3/21.
  */
 
-public class DemandAdapter extends RecyclerView.Adapter<DemandAdapter.ViewHolder> {
-    private final String TAG= "1";
-    private   List<PersonBean> mPersonList;
-    private onItemClickListener mListener;
+public class DemandAdapter extends PagerAdapter {
 
-    static class ViewHolder extends RecyclerView.ViewHolder{
-        TextView text_type;
-        TextView text_start_time;
-        TextView text_end_time;
-        TextView text_price;
-        TextView text_finish;
-        ImageView un_finish;
+    private final List<DemanPager> mList;
+    private String[] mTitles = {"等待","取消","进行中","完成"};
 
-       public ViewHolder(View view) {
-           super(view);
-           text_type = view.findViewById(R.id.text_type);
-           text_start_time = view.findViewById(R.id.text_start_time);
-           text_end_time = view.findViewById(R.id.text_end_time);
-           text_price = view.findViewById(R.id.text_price);
-           text_finish = view.findViewById(R.id.text_finish);
-           un_finish = view.findViewById(R.id.un_finish);
-       }
-   }
-   public DemandAdapter(List<PersonBean> personList){
-       mPersonList = personList;
-   }
-   public void setItemListener(onItemClickListener onItemClickListener){
-       mListener = onItemClickListener;
-   }
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_my_demand_item,parent,false);
-        ViewHolder holder = new ViewHolder(view);
-        return holder;
+    public DemandAdapter(List<DemanPager> mList) {
+        this.mList = mList;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
-       PersonBean personBean = mPersonList.get(position);
-        holder.text_start_time.setText(personBean.getStart_time_demand());
-        holder.text_end_time.setText(personBean.getEnd_time_demand());
-       holder.un_finish.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               if(mListener != null){
-                   mListener.onClick(view,position);
-               }
-           }
-       });
-
+    public int getCount() {
+        return mList.size();
     }
 
     @Override
-    public int getItemCount() {
-        return mPersonList.size();
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
+        return view == object;
     }
 
-    /**
-     * 监听事件的接口
-     */
-    public interface onItemClickListener{
-       void onClick(View view,int position);
+    @NonNull
+    @Override
+    public Object instantiateItem(@NonNull ViewGroup container, int position) {
+        DemanPager demandPager = mList.get(position);
+        View rootView = demandPager.rootView;
+        demandPager.initData();
+        container.addView(rootView);
+        return rootView;
+    }
+
+    @Override
+    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+        container.removeView((View) object);
+    }
+    public View getTabView(int position, Context context) {
+        View view = LayoutInflater.from(context).inflate(R.layout.tablayout_item,null);
+        TextView textView = view.findViewById(R.id.textView);
+        textView.setText(mTitles[position]);
+        return view;
     }
 
 }

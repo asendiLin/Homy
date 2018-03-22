@@ -7,60 +7,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        android:layout_weight="17"
+        android:orientation="vertical"
+        android:layout_weight="20"
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <RelativeLayout
-            android:layout_weight="6"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
+            android:orientation="vertical"
+            android:layout_weight="19"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <RelativeLayout
+                android:background="@color/colorTheme"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_xxl">
+
+            </RelativeLayout>
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img_user_pic"
-                android:layout_marginLeft="@dimen/space_xl"
                 android:layout_marginTop="@dimen/space_l"
                 android:layout_centerHorizontal="true"
+                app:civ_border_width="@dimen/space_xxs"
+                app:civ_border_color="@color/colorTheme"
+                android:id="@+id/img_user_pic"
                 android:src="@mipmap/ic_temp"
-                android:layout_width="@dimen/space_xxxl"
-                android:layout_height="@dimen/space_xxxl" />
+                android:layout_width="@dimen/space_xxxxl"
+                android:layout_height="@dimen/space_xxxxl" />
 
         </RelativeLayout>
         <LinearLayout
+            android:layout_marginTop="@dimen/space_s"
             android:orientation="vertical"
             android:layout_weight="13"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <RelativeLayout
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:layout_marginTop="@dimen/space_l"
+                    android:id="@+id/ts_name"
                     android:text="@string/str_nick_name"
                     style="@style/person_header_text"/>
                 <TextView
                     android:id="@+id/ts_name_person"
-                    android:layout_marginLeft="@dimen/space_xl"
-                    android:layout_marginTop="@dimen/space_l"
+                    android:layout_toRightOf="@+id/ts_name"
+                    android:layout_marginLeft="@dimen/space_m"
                     android:text="@string/app_name"
-                    android:textSize="@dimen/txt_m"
                     style="@style/person_header_text" />
-            </LinearLayout>
+            </RelativeLayout>
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="@string/str_gender"
-                    style="@style/person_header_text"/>
-                <TextView
-                    android:id="@+id/ts_sex_person"
-                    android:layout_marginLeft="@dimen/space_xl"
-                    android:text="man"
-                    android:textSize="@dimen/txt_m"
-                    style="@style/person_header_text" />
-            </LinearLayout>
-            <LinearLayout
+                android:padding="@dimen/space_xs"
+                android:layout_marginTop="@dimen/space_s_mid"
+                android:background="@drawable/detail_ll_bg"
+                android:layout_gravity="center_horizontal"
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -68,18 +67,12 @@
                     android:text="@string/str_reputation"
                     style="@style/person_header_text"/>
                 <TextView
-                    android:layout_marginLeft="@dimen/space_xl"
+                    android:layout_marginLeft="@dimen/space_l"
                     android:text="666"
                     android:textSize="@dimen/txt_m"
                     style="@style/person_header_text" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/write_person_msg"
-                android:layout_marginTop="@dimen/space_m"
-                android:text="@string/str_write_message"
-                style="@style/person_header_btn"
-                 />
 
         </LinearLayout>
 
@@ -123,13 +116,13 @@
             style="@style/person_view"
             android:layout_alignBottom="@+id/ts_demand" />
         <LinearLayout
-            android:id="@+id/ts_my_phone"
+            android:id="@+id/ts_msg_person"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 style="@style/person_m_order"
-                android:text="@string/str_my_phone" />
+                android:text="@string/str_write_message" />
             <ImageButton
                 android:id="@+id/next_my_phone"
                 style="@style/person_m_order_btn" />
@@ -138,13 +131,13 @@
             style="@style/person_view"
             android:layout_alignBottom="@+id/ts_my_phone" />
         <LinearLayout
-            android:id="@+id/ts_about_us"
+            android:id="@+id/ts_install"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
                 style="@style/person_m_order"
-                android:text="@string/str_about_us" />
+                android:text="@string/str_install" />
             <ImageButton
                 android:id="@+id/next_about_us"
                 style="@style/person_m_order_btn" />

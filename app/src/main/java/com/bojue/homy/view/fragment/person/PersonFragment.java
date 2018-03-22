@@ -29,6 +29,7 @@ import com.bojue.homy.presenter.person.AbstractPersonPresenter;
 import com.bojue.homy.presenter.person.ImagePresenter;
 import com.bojue.homy.view.activity.person.AboutUsActivity;
 import com.bojue.homy.view.activity.person.demand.MyDemandActivity;
+import com.bojue.homy.view.activity.person.install.InstallActivity;
 import com.bojue.homy.view.activity.person.message.BroadCastManger;
 import com.bojue.homy.view.activity.person.message.MessageActivity;
 import com.bojue.homy.view.activity.person.order.MyOrderActivity;
@@ -57,12 +58,11 @@ public class PersonFragment extends BaseFragment implements IPersonView, View.On
     private ImageButton next_demand;
     private ImageButton next_about_us;
     private ImageButton next_my_phone;
-    private Button write_person_msg;
     private ImageView img_user_pic;
     private LinearLayout orderLinearLayout;
     private LinearLayout demandLinearLayout;
-    private LinearLayout aboutLinearLayout;
-    private LinearLayout phoneLinearLayout;
+    private LinearLayout installLinearLayout;
+    private LinearLayout personMsgLinearLayout;
 
     private AbstractPersonPresenter mPresenter;
     private AbstractImagePresenter mIamegPresenter;
@@ -74,7 +74,6 @@ public class PersonFragment extends BaseFragment implements IPersonView, View.On
     private LocalReceiver localReceiver;
     private String name = "名字";
     private String sex= "man";
-    private TextView ts_sex_person;
 
 
     @Override
@@ -84,16 +83,14 @@ public class PersonFragment extends BaseFragment implements IPersonView, View.On
         next_demand = mView.findViewById(R.id.next_demand);
         next_my_phone = mView.findViewById(R.id.next_my_phone);
         next_about_us = mView.findViewById(R.id.next_about_us);
-        write_person_msg = mView.findViewById(R.id.write_person_msg);
         img_user_pic = mView.findViewById(R.id.img_user_pic);
         ts_name_person = mView.findViewById(R.id.ts_name_person);
-        ts_sex_person = mView.findViewById(R.id.ts_sex_person);
 
 
         orderLinearLayout = mView.findViewById(R.id.ts_order);
         demandLinearLayout = mView.findViewById(R.id.ts_demand);
-        aboutLinearLayout = mView.findViewById(R.id.ts_about_us);
-        phoneLinearLayout = mView.findViewById(R.id.ts_my_phone);
+        installLinearLayout = mView.findViewById(R.id.ts_install);
+        personMsgLinearLayout = mView.findViewById(R.id.ts_msg_person);
 
         return mView;
     }
@@ -102,11 +99,10 @@ public class PersonFragment extends BaseFragment implements IPersonView, View.On
 
         orderLinearLayout.setOnClickListener(this);
         demandLinearLayout.setOnClickListener(this);
-        aboutLinearLayout.setOnClickListener(this);
-        phoneLinearLayout.setOnClickListener(this);
+        installLinearLayout.setOnClickListener(this);
+        personMsgLinearLayout.setOnClickListener(this);
 
         next_my_phone.setOnClickListener(this);
-        write_person_msg.setOnClickListener(this);
         img_user_pic.setOnClickListener(this);
 
         mIamegPresenter = new ImagePresenter();
@@ -118,7 +114,6 @@ public class PersonFragment extends BaseFragment implements IPersonView, View.On
             localReceiver = new LocalReceiver();
             Log.i("TAG","这是名字"+name);
             ts_name_person.setText(name);
-            ts_sex_person.setText(sex);
             BroadCastManger.getInstance().registerReceiver(getActivity(),localReceiver,filter);
         }catch (Exception e){
             e.printStackTrace();
@@ -137,12 +132,7 @@ public class PersonFragment extends BaseFragment implements IPersonView, View.On
                 Intent intent2 = new Intent(getContext(), MyDemandActivity.class);
                 startActivity(intent2);
                 break;
-            case R.id.ts_about_us:
-                Toast.makeText(getContext(), "关于我们", Toast.LENGTH_SHORT).show();
-                Intent intent3 = new Intent(getContext(), AboutUsActivity.class);
-                startActivity(intent3);
-                break;
-            case R.id.write_person_msg:
+            case R.id.ts_msg_person:
                 Toast.makeText(getContext(), "编辑个人信息", Toast.LENGTH_SHORT).show();
                 Intent intent4 = new Intent(getContext(), MessageActivity.class);
                 startActivity(intent4);
@@ -158,8 +148,8 @@ public class PersonFragment extends BaseFragment implements IPersonView, View.On
                         .checkedList(mImageList)
                         .start();
                 break;
-            case R.id.ts_my_phone:
-                Intent intent5 = new Intent(getActivity(), MyPhoneActivity.class);
+            case R.id.ts_install:
+                Intent intent5 = new Intent(getActivity(), InstallActivity.class);
                 startActivity(intent5);
 
                 break;

@@ -35,7 +35,6 @@ public class MyOrderActivity extends BaseActivity implements IPersonView,View.On
     private TabLayout mTablayout;
     private ViewPager mViewPager; // 对应的viewPager
     private TextView txt_title; //标题
-    private TextView mTextView; //未完成or已完成
     private int tempPositon = 0 ;
     private ImageButton ib_back_community;//回退键
     private ArrayList<OrderPager> mUnFinishPager;//未完成的页面
@@ -71,7 +70,13 @@ public class MyOrderActivity extends BaseActivity implements IPersonView,View.On
         mUnFinishPager.add(basePager);
         OrderPager basePager2 = new OrderPager(this);
         mUnFinishPager.add(basePager2);
-        //设置RecyclerView的适配器
+        OrderPager basePager3 = new OrderPager(this);
+        mUnFinishPager.add(basePager3);
+        OrderPager basePager4 = new OrderPager(this);
+        mUnFinishPager.add(basePager4);
+        OrderPager basePager5 = new OrderPager(this);
+        mUnFinishPager.add(basePager5);
+        //设置ViewPager的适配器
         mAdapter = new OrderAdapter(mUnFinishPager);
         mViewPager.setAdapter(mAdapter);
         mTablayout.setupWithViewPager(mViewPager);//绑定ViewPager
@@ -88,15 +93,16 @@ public class MyOrderActivity extends BaseActivity implements IPersonView,View.On
 
     public void setTabView(){
         //设置TabLayout的自定义View
-        for (int i = 0; i <2; i++) {
+        for (int i = 0; i <mTablayout.getTabCount(); i++) {
             TabLayout.Tab tab = mTablayout.getTabAt(i);   //遍历所有TabCount
-            tab.setCustomView(R.layout.tablayout_item);//CustomView:自定义View
-            mTextView = findViewById(R.id.textView);
-            if( i == 0){
-                mTextView.setText("未完成");
+//            tab.setCustomView(R.layout.tablayout_item);//CustomView:自定义View
+//            mTextView = findViewById(R.id.textView);
+            if (tab != null) {
+                tab.setCustomView(mAdapter.getTabView(i,this));//CustomView:自定义View
+            }
             }
         }
-    }
+
 
     /**
      * 修改tabIndicator，使其与文字对齐
@@ -108,7 +114,7 @@ public class MyOrderActivity extends BaseActivity implements IPersonView,View.On
             Field tabStrip = tabLayout.getClass().getDeclaredField("mTabStrip");
             tabStrip.setAccessible(true);
             LinearLayout ll_tab = (LinearLayout) tabStrip.get(tabLayout);
-            int dp10 = DensityUtil.dip2px(tabLayout.getContext(),50);//一直实现不了的假象：距离太小
+            int dp10 = DensityUtil.dip2px(tabLayout.getContext(),7);//一直实现不了的假象：距离太小
             for (int i = 0; i < ll_tab.getChildCount(); i++) {
                 View child = ll_tab.getChildAt(i);
                 child.setPadding(0, 0, 0, 0);

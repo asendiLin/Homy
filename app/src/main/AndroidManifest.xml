@@ -57,6 +57,7 @@
             android:name=".utils.https.activity.ImageSelectorActivity" />
         <activity android:name=".view.activity.land_register.RegisterActivity"/>
         <activity android:name=".view.activity.person.AboutUsActivity"/>
+        <activity android:name=".view.activity.person.install.InstallActivity"/>
         <activity android:name=".view.activity.person.demand.MyDemandActivity"/>
         <activity android:name=".view.activity.person.order.MyOrderActivity"/>
         <activity android:name=".view.activity.person.phone.MyPhoneActivity"/>

@@ -1,106 +1,74 @@
 package com.bojue.homy.view.pager;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.bojue.homy.R;
 import com.bojue.homy.base.BasePager;
 import com.bojue.homy.entity.PersonBean;
 import com.bojue.homy.presenter.person.AbstractPersonPresenter;
-import com.bojue.homy.presenter.person.PersonPresenter;
 import com.bojue.homy.presenter.person.PersonTest;
 import com.bojue.homy.utils.https.load.LoadDataScrollController;
-import com.bojue.homy.view.activity.find.NeedDetailActivity;
-import com.bojue.homy.view.adapter.OrderItemAdapter;
+import com.bojue.homy.view.adapter.DemandItemAdapter;
 import com.bojue.homy.view.fragment.person.IPersonView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Xie on 2018/1/8.
- * 我的订单之RecyclerView
+ * Created by Xie on 2018/3/21.
  */
 
-public class OrderPager extends BasePager implements IPersonView,LoadDataScrollController.OnRecyclerRefreshListener{
-    private List<PersonBean> mPersonList;
-    private OrderItemAdapter mAdapter;//item适配器
+public class DemandPager extends BasePager implements IPersonView,LoadDataScrollController.OnRecyclerRefreshListener {
 
     private RecyclerView mRecyclerView;
+    private DemandItemAdapter mAdapter;
+    private   List<PersonBean> mPersonList;
+    private SwipeRefreshLayout mSwipeRefreshLayout;//设置下拉刷新和加载更多
+    private LoadDataScrollController mLoadDataScrollController;
+    private int page;
     private AbstractPersonPresenter mPresenter;
-    private SwipeRefreshLayout mSwipeRefreshLayout;
     private ViewStub mViewStub;
     private View errView;
 
-
-    private int page= 1;//接后台，每次加载列表的页数
-    private LoadDataScrollController mLoadDataScrollController;
-    private GridLayoutManager gridLayoutManager;
-
-
-    public OrderPager(Context context) {
+    public DemandPager(Context context) {
         super(context);
-
     }
 
-    public View initView(){
-        View view = View.inflate(context,R.layout.activity_my_order_recyclerview,null);
+    @Override
+    public View initView() {
+        View view = LayoutInflater.from(context).inflate(R.layout.activity_my_demand_recyclerview,null);
         mRecyclerView = view.findViewById(R.id.recyclerView);
-        mSwipeRefreshLayout= view.findViewById(R.id.refreshLayout);
         mViewStub = view.findViewById(R.id.view_stub_err);
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(context,
-                LinearLayoutManager.VERTICAL,false);
+        mSwipeRefreshLayout= view.findViewById(R.id.refreshLayout);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, LinearLayout.VERTICAL,false);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         //设置下拉刷新和加载更多
         mLoadDataScrollController=new LoadDataScrollController(this);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorBackgroundLine);
         mSwipeRefreshLayout.setProgressViewOffset(true,0,10);
         mRecyclerView.addOnScrollListener(mLoadDataScrollController);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(context,1,GridLayoutManager.VERTICAL,false));
-
         mSwipeRefreshLayout.setOnRefreshListener(mLoadDataScrollController);
 
         initData();
         return view;
     }
 
-    public void initData(){
+    public void initData() {
         mPersonList = new ArrayList<>();
-        //设置RecyclerView的适配器
-        mAdapter = new OrderItemAdapter(context,mPersonList);
-        mAdapter.setOnItemClickListener(new OrderItemAdapter.OnItemClickListener() {
-            @Override
-            public void onClick(Context context, int position) {
-                Intent intent = new Intent(context,NeedDetailActivity.class);
-                context.startActivity(intent);
-            }
-        });
+        mAdapter = new DemandItemAdapter(context,mPersonList);
         mRecyclerView.setAdapter(mAdapter);
-        mPresenter=new PersonTest();
-        //mPresenter = new PersonPresenter();
-        //获取当前view的实例
+
+        mPresenter = new PersonTest();
         mPresenter.attachView(this);
-        mPresenter.loadOrder(page);
-
-        gridLayoutManager = new GridLayoutManager(context,2);
-
-        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-                return gridLayoutManager.getSpanCount();
-            }
-        });
+        mPresenter.loadDemand(page);
 
     }
 
@@ -135,24 +103,19 @@ public class OrderPager extends BasePager implements IPersonView,LoadDataScrollC
         mSwipeRefreshLayout.setRefreshing(false);
     }
 
-    /**
-     * 初始化需求数据
-     */
     @Override
-    public void initDemand(List<PersonBean> damandBeanList) {
-    }
-
-    /**
-     * 初始化订单数据
-     * @param orderBeanList
-     */
-    @Override
-    public void initOrder(List<PersonBean> orderBeanList) {
+    public void initDemand(List<PersonBean> demandBeanList) {
         if(page == 1){
             mPersonList.clear();
         }
-        this.mPersonList.addAll(orderBeanList);
+        this.mPersonList.addAll(mPersonList);
         mAdapter.notifyDataSetChanged();
+
+    }
+
+    @Override
+    public void initOrder(List<PersonBean> orderBeanList) {
+
     }
 
     /**
@@ -161,18 +124,15 @@ public class OrderPager extends BasePager implements IPersonView,LoadDataScrollC
     @Override
     public void onRefresh() {
         page = 1;
-        mPresenter.loadOrder(page);
+        mPresenter.loadDemand(page);
         mLoadDataScrollController.setLoadDataStatus(false);//是否正在下载数据
         mSwipeRefreshLayout.setRefreshing(false);//是否正在刷新
     }
-
-    /**
-     * 加载更多
-     */
+    //加载更多
     @Override
     public void onLoadMore() {
         ++page;
-        mPresenter.loadOrder(page);
+        mPresenter.loadDemand(page);
         mLoadDataScrollController.setLoadDataStatus(false);
     }
 }

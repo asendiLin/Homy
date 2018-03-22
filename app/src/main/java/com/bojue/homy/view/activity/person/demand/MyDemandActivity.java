@@ -2,23 +2,30 @@ package com.bojue.homy.view.activity.person.demand;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import com.bojue.homy.R;
 import com.bojue.homy.base.BaseActivity;
 import com.bojue.homy.entity.PersonBean;
 import com.bojue.homy.presenter.person.AbstractPersonPresenter;
-import com.bojue.homy.presenter.person.PersonPresenter;
 import com.bojue.homy.presenter.person.PersonTest;
 import com.bojue.homy.utils.https.load.LoadDataScrollController;
+import com.bojue.homy.view.activity.person.order.MyOrderActivity;
 import com.bojue.homy.view.adapter.DemandAdapter;
+import com.bojue.homy.view.adapter.DemandItemAdapter;
 import com.bojue.homy.view.fragment.person.IPersonView;
+import com.bojue.homy.view.pager.DemanPager;
+import com.bojue.homy.view.pager.DemandPager;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,17 +34,18 @@ import java.util.List;
  * 我的需求之activity
  */
 
-public class MyDemandActivity extends BaseActivity  implements IPersonView,View.OnClickListener,LoadDataScrollController.OnRecyclerRefreshListener{
+public class MyDemandActivity extends BaseActivity  implements IPersonView,View.OnClickListener{
     private final String TAG=this.getClass().getName();
+    private TabLayout mTablayout;
     private ImageButton ib_back_community;//返回按钮
-    private List<PersonBean> mPersonList;
+    private List<DemanPager> mPersonList;
     public DemandAdapter mAdapter;//RecyclerView的适配器
     private RecyclerView mRecyclerView;
+    private ViewPager view_pager;
     private AbstractPersonPresenter mPresenter;
-    private int page= 1;//后台传过来的item数目
-    private SwipeRefreshLayout mSwipeRefreshLayout;//设置下拉刷新和加载更多
-    private LoadDataScrollController mLoadDataScrollController;
-    @Override
+    private int tempPositon = 0 ;
+
+
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_demand);
@@ -49,34 +57,36 @@ public class MyDemandActivity extends BaseActivity  implements IPersonView,View.
         ib_back_community = findViewById(R.id.ib_back_community);
         ib_back_community.setVisibility(View.VISIBLE);
         ib_back_community.setOnClickListener(this);
-        mRecyclerView = findViewById(R.id.recyclerView);
-        mSwipeRefreshLayout= findViewById(R.id.refreshLayout);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
-        mRecyclerView.setLayoutManager(linearLayoutManager);
-        //设置下拉刷新和加载更多
-        mLoadDataScrollController=new LoadDataScrollController(this);
-        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorBackgroundLine);
-        mSwipeRefreshLayout.setProgressViewOffset(true,0,10);
-        mRecyclerView.addOnScrollListener(mLoadDataScrollController);
-        mSwipeRefreshLayout.setOnRefreshListener(mLoadDataScrollController);
+        mTablayout = findViewById(R.id.tablayout);
+        view_pager = findViewById(R.id.view_pager);
+
     }
 
     public void initData(){
         mPersonList = new ArrayList<>();
-        //设置RecyclyerView的适配器
+        //设置ViewPager的适配器
+        DemanPager demandPager = new DemanPager(this);
+        mPersonList.add(demandPager);
+        DemanPager demandPager2 = new DemanPager(this);
+        mPersonList.add(demandPager2);
+        DemanPager demandPager3 = new DemanPager(this);
+        mPersonList.add(demandPager3);
+        DemanPager demandPager4 = new DemanPager(this);
+        mPersonList.add(demandPager4);
         mAdapter = new DemandAdapter(mPersonList);
-        mAdapter.setItemListener(new DemandAdapter.onItemClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-                Log.i(TAG, "onClick: "+position);
-            }
-        });
-        mRecyclerView.setAdapter(mAdapter);
-        mPresenter = new PersonTest();
-        //mPresenter = new PersonPresenter();
-        //获取当前view的实例
-        mPresenter.attachView(this);
-        mPresenter.loadDemand(page);
+
+//        mAdapter.setItemListener(new DemandItemAdapter.onItemClickListener() {
+//            @Override
+//            public void onClick(View view, int position) {
+//                Log.i(TAG, "onClick: "+position);
+//            }
+//        });
+        view_pager.setAdapter(mAdapter);
+        mTablayout.setupWithViewPager(view_pager);
+        reflex(mTablayout);
+        setTabView();
+        view_pager.setCurrentItem(tempPositon);
+
 
     }
 
@@ -87,6 +97,45 @@ public class MyDemandActivity extends BaseActivity  implements IPersonView,View.
                 finish();
                 break;
         }
+    }
+
+    public void setTabView() {
+        for (int i=0;i<mTablayout.getTabCount();i++){
+            TabLayout.Tab tab = mTablayout.getTabAt(i);
+            if (tab != null) {
+                tab.setCustomView(mAdapter.getTabView(i,this));
+            }
+
+        }
+
+    }
+
+    /**
+     * 修改tabIndicator，使其与文字对齐
+     * 反射原理：先得到TabLayout的Class对象，然后得到私有成员变量mSlidingTabStrip的Field，通过Field得到值强转为LinearLayout，之后只需要遍历LinearLayout中所有的Child为其增加Margin即可
+     * @param tabLayout
+     */
+    public static void reflex(final TabLayout tabLayout) {
+        try {
+            Field tabStrip = tabLayout.getClass().getDeclaredField("mTabStrip");
+            tabStrip.setAccessible(true);
+            LinearLayout ll_tab = (LinearLayout) tabStrip.get(tabLayout);
+            int dp10 = MyOrderActivity.DensityUtil.dip2px(tabLayout.getContext(),7);//一直实现不了的假象：距离太小
+            for (int i = 0; i < ll_tab.getChildCount(); i++) {
+                View child = ll_tab.getChildAt(i);
+                child.setPadding(0, 0, 0, 0);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1);
+                params.leftMargin = dp10;//这里需要修改
+                params.rightMargin = dp10;
+                child.setLayoutParams(params);
+                child.invalidate();
+            }
+        }catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -104,11 +153,11 @@ public class MyDemandActivity extends BaseActivity  implements IPersonView,View.
      */
     @Override
     public void initDemand(List<PersonBean> damandBeanList) {
-        if( page == 1){
-            mPersonList.clear();
-        }
-        this.mPersonList.addAll(damandBeanList);
-        mAdapter.notifyDataSetChanged();
+//        if( page == 1){
+//            mPersonList.clear();
+//        }
+//        this.mPersonList.addAll(damandBeanList);
+//        mAdapter.notifyDataSetChanged();
     }
 
     /**
@@ -124,21 +173,5 @@ public class MyDemandActivity extends BaseActivity  implements IPersonView,View.
 
 
 
-    /**
-     * 下拉刷新
-     */
-    @Override
-    public void onRefresh() {
-        page = 1;
-        mPresenter.loadDemand(page);
-        mLoadDataScrollController.setLoadDataStatus(false);//是否正在下载数据
-        mSwipeRefreshLayout.setRefreshing(false);//是否正在刷新
-    }
-    //加载更多
-    @Override
-    public void onLoadMore() {
-        ++page;
-        mPresenter.loadDemand(page);
-        mLoadDataScrollController.setLoadDataStatus(false);
-    }
+
 }

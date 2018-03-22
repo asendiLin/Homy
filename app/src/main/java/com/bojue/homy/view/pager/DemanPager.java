@@ -6,22 +6,18 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.bojue.homy.R;
 import com.bojue.homy.base.BasePager;
 import com.bojue.homy.entity.PersonBean;
 import com.bojue.homy.presenter.person.AbstractPersonPresenter;
-import com.bojue.homy.presenter.person.PersonPresenter;
 import com.bojue.homy.presenter.person.PersonTest;
 import com.bojue.homy.utils.https.load.LoadDataScrollController;
 import com.bojue.homy.view.activity.find.NeedDetailActivity;
+import com.bojue.homy.view.adapter.DemandItemAdapter;
 import com.bojue.homy.view.adapter.OrderItemAdapter;
 import com.bojue.homy.view.fragment.person.IPersonView;
 
@@ -33,9 +29,9 @@ import java.util.List;
  * 我的订单之RecyclerView
  */
 
-public class OrderPager extends BasePager implements IPersonView,LoadDataScrollController.OnRecyclerRefreshListener{
+public class DemanPager extends BasePager implements IPersonView,LoadDataScrollController.OnRecyclerRefreshListener{
     private List<PersonBean> mPersonList;
-    private OrderItemAdapter mAdapter;//item适配器
+    private DemandItemAdapter mAdapter;//item适配器
 
     private RecyclerView mRecyclerView;
     private AbstractPersonPresenter mPresenter;
@@ -43,15 +39,13 @@ public class OrderPager extends BasePager implements IPersonView,LoadDataScrollC
     private ViewStub mViewStub;
     private View errView;
 
-
     private int page= 1;//接后台，每次加载列表的页数
     private LoadDataScrollController mLoadDataScrollController;
     private GridLayoutManager gridLayoutManager;
 
 
-    public OrderPager(Context context) {
+    public DemanPager(Context context) {
         super(context);
-
     }
 
     public View initView(){
@@ -78,11 +72,11 @@ public class OrderPager extends BasePager implements IPersonView,LoadDataScrollC
     public void initData(){
         mPersonList = new ArrayList<>();
         //设置RecyclerView的适配器
-        mAdapter = new OrderItemAdapter(context,mPersonList);
-        mAdapter.setOnItemClickListener(new OrderItemAdapter.OnItemClickListener() {
+        mAdapter = new DemandItemAdapter(context,mPersonList);
+        mAdapter.setItemListener(new DemandItemAdapter.onItemClickListener() {
             @Override
-            public void onClick(Context context, int position) {
-                Intent intent = new Intent(context,NeedDetailActivity.class);
+            public void onClick(View view, int position) {
+                Intent intent = new Intent(context, NeedDetailActivity.class);
                 context.startActivity(intent);
             }
         });

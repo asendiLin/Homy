@@ -63,9 +63,25 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/drop_out"
-        android:text="@string/str_drop_out"
+        android:id="@+id/btn_finish_phone"
+        android:layout_marginTop="@dimen/space_xxxxl"
+        android:text="@string/str_phone_finish"
         style="@style/global_bt_style" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/ts_remove_phone"
+            android:layout_marginRight="@dimen/space_xl"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/space_l"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/str_msg_phone" />
+    </RelativeLayout>
+
 
 
 </LinearLayout>

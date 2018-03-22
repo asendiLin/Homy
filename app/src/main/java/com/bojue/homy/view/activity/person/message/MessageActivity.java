@@ -30,6 +30,7 @@ import com.bojue.homy.presenter.person.MessagePresenter;
 import com.bojue.homy.view.activity.land_register.LoginActivity;
 import com.bojue.homy.view.activity.land_register.UserManage;
 import com.bojue.homy.view.activity.person.demand.MyDemandView;
+import com.bojue.homy.view.activity.person.phone.MyPhoneActivity;
 import com.bojue.homy.view.fragment.person.IPersonView;
 import com.bojue.homy.view.fragment.person.PersonFragment;
 
@@ -48,6 +49,8 @@ public class MessageActivity extends BaseActivity implements MessageView,View.On
     private ImageButton ib_back_community;//返回按钮
     private Button ib_send_feeling_content;//发送按钮
     private Button drop_out;//退出登录
+    private TextView btn_remove_phone;//解绑手机
+    private Button btn_finish_phone;
     private SharedPreferences mSharedPreferences;
     private ArrayAdapter<String> mAdapter;//spinner的适配器
     private EditText et_name_msg;//用户昵称
@@ -69,13 +72,13 @@ public class MessageActivity extends BaseActivity implements MessageView,View.On
 
     public void initView(){
         ib_back_community = findViewById(R.id.ib_back_community);
-        ib_back_community.setVisibility(View.VISIBLE);
-        ib_back_community.setOnClickListener(this);
+
         ib_send_feeling_content = findViewById(R.id.ib_send_feeling_content);
-        ib_send_feeling_content.setVisibility(View.VISIBLE);
-        ib_send_feeling_content.setOnClickListener(this);
-        drop_out = findViewById(R.id.drop_out);
-        drop_out.setOnClickListener(this);
+
+//        drop_out = findViewById(R.id.drop_out);
+//        drop_out.setOnClickListener(this);
+        btn_remove_phone = findViewById(R.id.ts_remove_phone);
+        btn_finish_phone = findViewById(R.id.btn_finish_phone);
         et_name_msg = findViewById(R.id.et_name_msg);
         rd_msg = findViewById(R.id.rd_msg);
         rb_male = findViewById(R.id.rb_male);
@@ -84,6 +87,13 @@ public class MessageActivity extends BaseActivity implements MessageView,View.On
 
     }
     public void initData(){
+
+        ib_back_community.setVisibility(View.VISIBLE);
+        ib_back_community.setOnClickListener(this);
+        ib_send_feeling_content.setVisibility(View.INVISIBLE);
+        ib_send_feeling_content.setOnClickListener(this);
+        btn_remove_phone.setOnClickListener(this);
+        btn_finish_phone.setOnClickListener(this);
 
         rd_msg.setOnCheckedChangeListener(new mOnCheckedChangeListener());
         mMessagePresenter = new MessagePresenter();
@@ -96,7 +106,26 @@ public class MessageActivity extends BaseActivity implements MessageView,View.On
             case R.id.ib_back_community:
                 finish();
                 break;
-            case R.id.ib_send_feeling_content:
+//            case R.id.drop_out:
+//
+//
+//                ActivityController.clearActivty();
+//                Intent intent = new Intent(this, LoginActivity.class);
+//                //清除TaskStack，再创建一个新的,实现注销之后，返回键不能返回
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                String userPhone = "Homy";
+//                String passWord = "Homy";
+//                UserManage.getInstance().saveUserInfo(this,userPhone,passWord);
+//                startActivity(intent);
+//                finish();
+//                break;
+            case R.id.ts_remove_phone:
+                Intent intent = new Intent();
+                intent.setClass(this, MyPhoneActivity.class);
+                startActivity(intent);
+
+                break;
+            case R.id.btn_finish_phone:
                 String name = et_name_msg.getText().toString();
                 String mId="93f176fa-5e8e-41ad-ab7b-ab49b1a0e3fb";
 
@@ -109,20 +138,6 @@ public class MessageActivity extends BaseActivity implements MessageView,View.On
                 intent2.putExtra("gender",gender);
                 intent2.setAction("MessageActivity");
                 BroadCastManger.getInstance().sendBroadCast(this,intent2);
-                finish();
-
-                break;
-            case R.id.drop_out:
-
-
-                ActivityController.clearActivty();
-                Intent intent = new Intent(this, LoginActivity.class);
-                //清除TaskStack，再创建一个新的,实现注销之后，返回键不能返回
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                String userPhone = "Homy";
-                String passWord = "Homy";
-                UserManage.getInstance().saveUserInfo(this,userPhone,passWord);
-                startActivity(intent);
                 finish();
                 break;
             default:
